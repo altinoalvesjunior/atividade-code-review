@@ -2,7 +2,7 @@ import requests
 
 def getRepositories():
     url = 'https://api.github.com/graphql'
-    token = "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"
+    token = "TOKEN AQUI"
     headers = {"Authorization": "Bearer " + token}
 
     query = """

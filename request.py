@@ -1,3 +1,5 @@
+import json
+
 import requests
 
 def getRepositories():
@@ -41,13 +43,17 @@ def getRepositories():
     filterRepository(request)
 
 def filterRepository(request):
-    # print(request.z)
     jsonResponse = request.json()
-    repository = jsonResponse['data']['search']['nodes'][0]
-    print(f'Repository name: {repository["name"]}')
 
-    pullRequestMergedCount = repository["pullRequestMerged"]['totalCount']
-    pullRequestClosedCount = repository["pullRequestClosed"]['totalCount']
-    print(pullRequestMergedCount)
-    print(pullRequestClosedCount)
+    jsonTotalCount = len(jsonResponse['data']['search']['nodes'])
 
+    for i in range(jsonTotalCount):
+
+        repository = jsonResponse['data']['search']['nodes'][i]
+
+        pullRequestMergedCount = repository["pullRequestMerged"]['totalCount']
+        pullRequestClosedCount = repository["pullRequestClosed"]['totalCount']
+
+        if (pullRequestMergedCount >= 50 & pullRequestClosedCount >= 0) |\
+            (pullRequestMergedCount + pullRequestClosedCount >= 100):
+            print(f' name: {repository["name"]}')

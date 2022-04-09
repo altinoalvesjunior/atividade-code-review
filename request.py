@@ -1,19 +1,22 @@
-import json
-
 import requests
 
 def getRepositories():
+    global repositoriesCount
+    repositoriesCount = 0
+
+    global endCursor
+    endCursor = ""
+
     url = 'https://api.github.com/graphql'
     token = "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"
     headers = {"Authorization": "Bearer " + token}
 
-    query = """
-    {
-        search(query:"stars:>100", type:REPOSITORY, first:5){
+    firstQuery = """
+        {
+        search(type: REPOSITORY, query:"stars:>100", first: 10) {
             pageInfo {
-                startCursor
-                endCursor
                 hasNextPage
+                endCursor    
             }
             nodes {
             ... on Repository {
@@ -29,31 +32,62 @@ def getRepositories():
                     pullRequestClosed: pullRequests(states: CLOSED){
                         totalCount
                     }
-              
-                    owner {
-                        login
-                    }
                 } 
             } 
         }
     }
     """
 
-    request = requests.post(url, json={'query': query}, headers=headers)
-    filterRepository(request)
+    nextQuery = """
+        {
+        search(type: REPOSITORY, query:"stars:>100", first: 10, after: %s ) {
+            pageInfo {
+                hasNextPage
+                endCursor    
+            }
+            nodes {
+            ... on Repository {
+                        name
+                    url
+                    createdAt
+                        updatedAt
+              
+                    pullRequestMerged: pullRequests(states: MERGED){
+                        totalCount
+                    }
+              
+                    pullRequestClosed: pullRequests(states: CLOSED){
+                        totalCount
+                    }
+                } 
+            } 
+        }
+    }
+    """ % endCursor
 
-def filterRepository(request):
+    request = requests.post(url, json={'query': firstQuery}, headers=headers)
+    filterRepository(request, repositoriesCount, endCursor)
+
+
+
+def filterRepository(request, repositoriesCount, endCursor):
     jsonResponse = request.json()
 
     jsonTotalCount = len(jsonResponse['data']['search']['nodes'])
 
-    for i in range(jsonTotalCount):
+    if jsonTotalCount > 0:
+        for i in range(jsonTotalCount):
+            repository = jsonResponse['data']['search']['nodes'][i]
 
-        repository = jsonResponse['data']['search']['nodes'][i]
+            pullRequestMergedCount = repository["pullRequestMerged"]['totalCount']
+            pullRequestClosedCount = repository["pullRequestClosed"]['totalCount']
 
-        pullRequestMergedCount = repository["pullRequestMerged"]['totalCount']
-        pullRequestClosedCount = repository["pullRequestClosed"]['totalCount']
+            if (pullRequestMergedCount >= 50 & pullRequestClosedCount >= 50) |\
+                (pullRequestMergedCount + pullRequestClosedCount >= 100):
+                print(f' name: {repository["name"]}')
 
-        if (pullRequestMergedCount >= 50 & pullRequestClosedCount >= 0) |\
-            (pullRequestMergedCount + pullRequestClosedCount >= 100):
-            print(f' name: {repository["name"]}')
+                repositoriesCount += 1
+                print(repositoriesCount)
+
+            endCursor = jsonResponse['data']['search']['pageInfo']['endCursor']
+            print(endCursor)

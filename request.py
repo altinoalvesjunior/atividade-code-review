@@ -3,7 +3,6 @@ import requests
 repositoriesCount = 0
 endCursor = ""
 
-
 def getNextQuery(endcursor):
     nextQuery = """
         {
@@ -33,7 +32,6 @@ def getNextQuery(endcursor):
     """ % endcursor
 
     print('endcursor é ' + endcursor)
-
     return nextQuery
 
 
@@ -72,18 +70,9 @@ def getRepositories():
     """
 
     request = requests.post(url, json={'query': firstQuery}, headers=headers)
-    filterRepository(request)
-    print(endCursor)
-
-    request = requests.post(url, json={'query': getNextQuery(endCursor)}, headers=headers)
-    filterRepository(request)
-
-    # while True:
-    #     request = requests.post(url, json={'query': firstQuery}, headers=headers)
-    #     filterRepository(request, repositoriesCount)
-    #
-    #     if not repositoriesCount < 100:
-    #         break
+    while repositoriesCount < 100:
+        filterRepository(request)
+        request = requests.post(url, json={'query': getNextQuery(endCursor)}, headers=headers)
 
 
 def filterRepository(request):

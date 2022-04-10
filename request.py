@@ -1,3 +1,5 @@
+import json
+import pandas as pd
 import requests
 
 repositoriesCount = 0
@@ -6,7 +8,7 @@ endCursor = ""
 def getNextQuery(endcursor):
     nextQuery = """
         {
-        search(type: REPOSITORY, query:"stars:>100", first: 10, after:"%s") {
+        search(type: REPOSITORY, query:"stars:>100", first: 5, after:"%s") {
             pageInfo {
                 hasNextPage
                 endCursor    
@@ -44,7 +46,7 @@ def getRepositories():
 
     firstQuery = """
         {
-        search(type: REPOSITORY, query:"stars:>100", first: 10) {
+        search(type: REPOSITORY, query:"stars:>100", first: 5) {
             pageInfo {
                 hasNextPage
                 endCursor    
@@ -69,16 +71,18 @@ def getRepositories():
     }
     """
 
+    listR = []
+
     request = requests.post(url, json={'query': firstQuery}, headers=headers)
     while repositoriesCount < 100:
-        filterRepository(request)
+        filterRepository(request, listR)
         request = requests.post(url, json={'query': getNextQuery(endCursor)}, headers=headers)
 
+    df = pd.DataFrame(listR)
+    df.to_csv('repositories.csv', encoding='utf-8')
 
-def filterRepository(request):
+def filterRepository(request, repoList):
     jsonResponse = request.json()
-    print(jsonResponse)
-
     jsonTotalCount = len(jsonResponse['data']['search']['nodes'])
 
     global endCursor
@@ -94,6 +98,7 @@ def filterRepository(request):
             if (pullRequestMergedCount >= 50 & pullRequestClosedCount >= 50) | \
                     (pullRequestMergedCount + pullRequestClosedCount >= 100):
                 print(f' name: {repository["name"]}')
+                repoList.append(repository)
 
                 global repositoriesCount
                 repositoriesCount += 1

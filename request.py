@@ -1,11 +1,9 @@
 import requests
 
-def getRepositories():
-    global repositoriesCount
-    repositoriesCount = 0
+repositoriesCount = 0
+endCursor = ""
 
-    global endCursor
-    endCursor = ""
+def getRepositories():
 
     url = 'https://api.github.com/graphql'
     token = "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"
@@ -40,7 +38,7 @@ def getRepositories():
 
     nextQuery = """
         {
-        search(type: REPOSITORY, query:"stars:>100", first: 10, after: %s ) {
+        search(type: REPOSITORY, query:"stars:>100", first: 10, after:"%s") {
             pageInfo {
                 hasNextPage
                 endCursor    
@@ -66,14 +64,32 @@ def getRepositories():
     """ % endCursor
 
     request = requests.post(url, json={'query': firstQuery}, headers=headers)
-    filterRepository(request, repositoriesCount, endCursor)
+    filterRepository(request)
+    print(endCursor)
+
+    request = requests.post(url, json={'query': nextQuery}, headers=headers)
+    filterRepository(request)
 
 
+    # while(repositoriesCount < 100):
+    #     request = requests.post(url, json={'query': nextQuery}, headers=headers)
+    #     filterRepository(request)
 
-def filterRepository(request, repositoriesCount, endCursor):
+    # while True:
+    #     request = requests.post(url, json={'query': firstQuery}, headers=headers)
+    #     filterRepository(request, repositoriesCount)
+    #
+    #     if not repositoriesCount < 100:
+    #         break
+
+
+def filterRepository(request):
     jsonResponse = request.json()
 
     jsonTotalCount = len(jsonResponse['data']['search']['nodes'])
+
+    global endCursor
+    endCursor = jsonResponse['data']['search']['pageInfo']["endCursor"]
 
     if jsonTotalCount > 0:
         for i in range(jsonTotalCount):
@@ -86,8 +102,5 @@ def filterRepository(request, repositoriesCount, endCursor):
                 (pullRequestMergedCount + pullRequestClosedCount >= 100):
                 print(f' name: {repository["name"]}')
 
+                global repositoriesCount
                 repositoriesCount += 1
-                print(repositoriesCount)
-
-            endCursor = jsonResponse['data']['search']['pageInfo']['endCursor']
-            print(endCursor)

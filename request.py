@@ -1,4 +1,3 @@
-import json
 import pandas as pd
 import requests
 
@@ -15,10 +14,13 @@ def getNextQuery(endcursor):
             }
             nodes {
             ... on Repository {
-                        name
+                    name
+                    owner {
+                        login
+                    }
                     url
                     createdAt
-                        updatedAt
+                    updatedAt
 
                     pullRequestMerged: pullRequests(states: MERGED){
                         totalCount
@@ -54,6 +56,9 @@ def getRepositories():
             nodes {
             ... on Repository {
                     name
+                    owner {
+                        login
+                    }
                     url
                     createdAt
                     updatedAt

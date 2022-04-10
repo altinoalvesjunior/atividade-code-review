@@ -3,8 +3,8 @@ import requests
 repositoriesCount = 0
 endCursor = ""
 
-def getRepositories():
 
+def getRepositories():
     url = 'https://api.github.com/graphql'
     token = "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"
     headers = {"Authorization": "Bearer " + token}
@@ -22,11 +22,11 @@ def getRepositories():
                     url
                     createdAt
                     updatedAt
-              
+
                     pullRequestMerged: pullRequests(states: MERGED){
                         totalCount
                     }
-              
+
                     pullRequestClosed: pullRequests(states: CLOSED){
                         totalCount
                     }
@@ -49,11 +49,11 @@ def getRepositories():
                     url
                     createdAt
                         updatedAt
-              
+
                     pullRequestMerged: pullRequests(states: MERGED){
                         totalCount
                     }
-              
+
                     pullRequestClosed: pullRequests(states: CLOSED){
                         totalCount
                     }
@@ -69,11 +69,6 @@ def getRepositories():
 
     request = requests.post(url, json={'query': nextQuery}, headers=headers)
     filterRepository(request)
-
-
-    # while(repositoriesCount < 100):
-    #     request = requests.post(url, json={'query': nextQuery}, headers=headers)
-    #     filterRepository(request)
 
     # while True:
     #     request = requests.post(url, json={'query': firstQuery}, headers=headers)
@@ -98,8 +93,8 @@ def filterRepository(request):
             pullRequestMergedCount = repository["pullRequestMerged"]['totalCount']
             pullRequestClosedCount = repository["pullRequestClosed"]['totalCount']
 
-            if (pullRequestMergedCount >= 50 & pullRequestClosedCount >= 50) |\
-                (pullRequestMergedCount + pullRequestClosedCount >= 100):
+            if (pullRequestMergedCount >= 50 & pullRequestClosedCount >= 50) | \
+                    (pullRequestMergedCount + pullRequestClosedCount >= 100):
                 print(f' name: {repository["name"]}')
 
                 global repositoriesCount

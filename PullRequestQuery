@@ -1,0 +1,33 @@
+query getPR {
+  repository(owner: "freeCodeCamp", name: "freeCodeCamp") {
+    pullRequests(first: 15, after: "endCursor") {
+      totalCount
+      nodes {
+        id
+        createdAt
+        closed
+        closedAt
+        merged
+        mergedAt
+        bodyText
+        changedFiles
+        files {
+          totalCount
+        }
+        participants {
+          totalCount
+        }
+        comments {
+          totalCount
+        }
+        reviews {
+          totalCount
+        }
+      }
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+    }
+  }
+}

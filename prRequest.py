@@ -8,16 +8,14 @@ token = "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"
 
 name = ""
 owner = ""
+endCursor = ""
+hasNextPage = False
 
-def getPullRequests():
-
-    headers = {"Authorization": "Bearer " + token}
-    owner = None
-    name = None
-
-    prFirstQuery = """
-      repository(owner: "%s", name: "%s") {
-        pullRequests(first: 15) {
+def getPRNextQuery(endcursor):
+    prNextQuery = """
+    {
+      repository(owner: "donnemartin", name: "system-design-primer") {
+        pullRequests(first: 50, after: "%s") {
           totalCount
           nodes {
             id
@@ -47,51 +45,66 @@ def getPullRequests():
           }
         }
       }
-    """ % (owner, name)
+    }
+    """ % (endcursor)
 
-    request = requests.post(url, json={'query': prFirstQuery}, headers=headers)
-    print(request)
+    return prNextQuery
 
-    def getPRNextQuery(endcursor):
-        prNextQuery = """
-          repository(owner: "freeCodeCamp", name: "freeCodeCamp") {
-            pullRequests(first: 15, after: "endCursor") {
+def getPullRequests():
+    headers = {"Authorization": "Bearer " + token}
+
+    prFirstQuery = """
+    {
+      repository(owner: "donnemartin", name: "system-design-primer") {
+        pullRequests(first: 50) {
+          totalCount
+          nodes {
+            id
+            createdAt
+            closed
+            closedAt
+            merged
+            mergedAt
+            bodyText
+            changedFiles
+            files {
               totalCount
-              nodes {
-                id
-                createdAt
-                closed
-                closedAt
-                merged
-                mergedAt
-                bodyText
-                changedFiles
-                files {
-                  totalCount
-                }
-                participants {
-                  totalCount
-                }
-                comments {
-                  totalCount
-                }
-                reviews {
-                  totalCount
-                }
-              }
-              pageInfo {
-                hasNextPage
-                endCursor
-              }
+            }
+            participants {
+              totalCount
+            }
+            comments {
+              totalCount
+            }
+            reviews {
+              totalCount
             }
           }
-        """ % endcursor
+          pageInfo {
+            hasNextPage
+            endCursor
+          }
+        }
+      }
+    }
+    """ # % (owner, name)
 
-        return prNextQuery
+    request = requests.post(url, json={'query': prFirstQuery}, headers=headers)
+    checkPullRequest(request)
+    print(request.json())
 
-# a fazer
-def readFile():
-    data = pd.read_csv("repositories.csv")
+    while hasNextPage:
+            request = requests.post(url, json={'query': getPRNextQuery(endCursor)}, headers=headers)
+            checkPullRequest(request)
+            print(request.json())
 
-    global name
-    name = data['name']
+def checkPullRequest(request):
+    jsonResponse = request.json()
+
+    global endCursor
+    endCursor = jsonResponse['data']['repository']['pullRequests']['pageInfo']['endCursor']
+
+    global hasNextPage
+    hasNextPage = jsonResponse['data']['repository']['pullRequests']['pageInfo']['hasNextPage']
+
+def getRepositoryDataFromFile():

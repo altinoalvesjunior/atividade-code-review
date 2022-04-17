@@ -124,8 +124,9 @@ def filterPullRequest(request):
             closedAt = pullRequest["closedAt"]
             createdAt = pullRequest["createdAt"]
 
-            if (closed | merged) & reviews >=1:
-                if closed & merged:
+            if (closed or merged) and reviews >=1:
+                # PRECISA DE RESOLVER AQUI NÃO FAÇO IDEIA DE COMO FAZER AS CONDIÇOES
+               if closed and merged:
                     timeSpent = calculateCloseMergeTime(createdAt, mergedAt)
                 elif closed and merged is None:
                     timeSpent = calculateCloseMergeTime(createdAt, closedAt)

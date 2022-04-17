@@ -89,8 +89,8 @@ def getPullRequests(name, owner):
     """ % (owner, name)
 
     request = requests.post(url, json={'query': prFirstQuery}, headers=headers)
-    checkIfHasNext(request)
-    filterPullRequest(request)
+    checkIfHasNext(request.json())
+    filterPullRequest(request.json())
     print(request.json())
 
     # while hasNextPage:
@@ -99,13 +99,11 @@ def getPullRequests(name, owner):
     #      print(request.json())
 
 def checkIfHasNext(request):
-    jsonResponse = request.json()
-
     global hasNextPage
-    hasNextPage = jsonResponse['data']['repository']['pullRequests']['pageInfo']['hasNextPage']
+    hasNextPage = request['data']['repository']['pullRequests']['pageInfo']['hasNextPage']
 
     global endCursor
-    endCursor = jsonResponse['data']['repository']['pullRequests']['pageInfo']['endCursor']
+    endCursor = request['data']['repository']['pullRequests']['pageInfo']['endCursor']
 
 def selectPullRequests(request):
     jsonResponse = request.json()
@@ -113,12 +111,11 @@ def selectPullRequests(request):
     print(jsonResponse['data']['repository']['pullRequests']['nodes']["reviews"])
 
 def filterPullRequest(request):
-    jsonResponse = request.json()
-    jsonTotalCount = len(jsonResponse['data']['repository']['pullRequests']['nodes'])
+    jsonTotalCount = len(request['data']['repository']['pullRequests']['nodes'])
 
     if jsonTotalCount > 0:
         for i in range(jsonTotalCount):
-            pullRequest = jsonResponse['data']['repository']['pullRequests']['nodes'][i]
+            pullRequest = request['data']['repository']['pullRequests']['nodes'][i]
 
             closed = pullRequest["reviews"]['totalCount']
             merged = pullRequest["reviews"]['totalCount']
@@ -128,8 +125,15 @@ def filterPullRequest(request):
             createdAt = pullRequest["createdAt"]
 
             if (closed | merged) & reviews >=1:
+                if closed & merged:
+                    timeSpent = calculateCloseMergeTime(createdAt, mergedAt)
+                elif closed and merged is None:
+                    timeSpent = calculateCloseMergeTime(createdAt, closedAt)
+                elif merged and closed is None:
+                    timeSpent = calculateCloseMergeTime(createdAt, mergedAt)
 
-                print(calculateCloseMergeTime(createdAt, closedAt))
+                if timeSpent is not None:
+                    print(pullRequest)
 
 def calculateCloseMergeTime(createdAt, closedMergedAt):
     if (closedMergedAt is not None) and (createdAt is not None):
@@ -138,7 +142,7 @@ def calculateCloseMergeTime(createdAt, closedMergedAt):
 
         timeInSeconds = (finishedTime - createdTime).total_seconds()
 
-        if timeInSeconds >= 3600 and (timeInSeconds is not None):
+        if timeInSeconds >= 3600:
             return divmod(timeInSeconds, 3600)[0]
 
 def tester():

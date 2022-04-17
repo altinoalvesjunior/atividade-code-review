@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 
 import requests
 import pandas as pd
@@ -89,12 +90,13 @@ def getPullRequests(name, owner):
 
     request = requests.post(url, json={'query': prFirstQuery}, headers=headers)
     checkIfHasNext(request)
+    filterPullRequest(request)
     print(request.json())
 
-    while hasNextPage:
-         request = requests.post(url, json={'query': getPRNextQuery(endCursor, name, owner)}, headers=headers)
-         checkIfHasNext(request)
-         print(request.json())
+    # while hasNextPage:
+    #      request = requests.post(url, json={'query': getPRNextQuery(endCursor, name, owner)}, headers=headers)
+    #      checkIfHasNext(request)
+    #      print(request.json())
 
 def checkIfHasNext(request):
     jsonResponse = request.json()
@@ -104,6 +106,40 @@ def checkIfHasNext(request):
 
     global endCursor
     endCursor = jsonResponse['data']['repository']['pullRequests']['pageInfo']['endCursor']
+
+def selectPullRequests(request):
+    jsonResponse = request.json()
+
+    print(jsonResponse['data']['repository']['pullRequests']['nodes']["reviews"])
+
+def filterPullRequest(request):
+    jsonResponse = request.json()
+    jsonTotalCount = len(jsonResponse['data']['repository']['pullRequests']['nodes'])
+
+    if jsonTotalCount > 0:
+        for i in range(jsonTotalCount):
+            pullRequest = jsonResponse['data']['repository']['pullRequests']['nodes'][i]
+
+            closed = pullRequest["reviews"]['totalCount']
+            merged = pullRequest["reviews"]['totalCount']
+            reviews = pullRequest["reviews"]['totalCount']
+            mergedAt = pullRequest["mergedAt"]
+            closedAt = pullRequest["closedAt"]
+            createdAt = pullRequest["createdAt"]
+
+            if (closed | merged) & reviews >=1:
+
+                print(calculateCloseMergeTime(createdAt, closedAt))
+
+def calculateCloseMergeTime(createdAt, closedMergedAt):
+    if (closedMergedAt is not None) and (createdAt is not None):
+        createdTime = datetime.strptime(createdAt, "%Y-%m-%dT%H:%M:%SZ")
+        finishedTime = datetime.strptime(closedMergedAt, "%Y-%m-%dT%H:%M:%SZ")
+
+        timeInSeconds = (finishedTime - createdTime).total_seconds()
+
+        if timeInSeconds >= 3600 and (timeInSeconds is not None):
+            return divmod(timeInSeconds, 3600)[0]
 
 def tester():
     f = open("repositories.csv", 'r')
@@ -119,12 +155,12 @@ def tester():
             texto[x] = texto[x].split(',')
             x += 1
 
-    # name = texto[10][1]
-    # owner = texto[10][2]
+    name = texto[10][1]
+    owner = texto[10][2]
 
-    return texto
+    return name, owner
 
 def main():
-    text = tester()
+    name, owner = tester()
 
-    print(text)
+    getPullRequests(name, owner)

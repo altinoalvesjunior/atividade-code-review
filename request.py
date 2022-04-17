@@ -19,13 +19,14 @@ def getNextQuery(endcursor):
                         login
                     }
                     url
+                    stargazers {
+                      totalCount
+                    }
                     createdAt
                     updatedAt
-
                     pullRequestMerged: pullRequests(states: MERGED){
                         totalCount
                     }
-
                     pullRequestClosed: pullRequests(states: CLOSED){
                         totalCount
                     }
@@ -60,13 +61,14 @@ def getRepositories():
                         login
                     }
                     url
+                    stargazers {
+                      totalCount
+                    }
                     createdAt
                     updatedAt
-
                     pullRequestMerged: pullRequests(states: MERGED){
                         totalCount
                     }
-
                     pullRequestClosed: pullRequests(states: CLOSED){
                         totalCount
                     }

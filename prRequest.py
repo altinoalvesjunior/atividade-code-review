@@ -1,10 +1,17 @@
+import json
+
 import requests
+import pandas as pd
+
+url = 'https://api.github.com/graphql'
+token = "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"
+
+name = ""
+owner = ""
 
 def getPullRequests():
-    url = 'https://api.github.com/graphql'
-    token = "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"
-    headers = {"Authorization": "Bearer " + token}
 
+    headers = {"Authorization": "Bearer " + token}
     owner = None
     name = None
 
@@ -81,3 +88,10 @@ def getPullRequests():
         """ % endcursor
 
         return prNextQuery
+
+# a fazer
+def readFile():
+    data = pd.read_csv("repositories.csv")
+
+    global name
+    name = data['name']

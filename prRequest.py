@@ -1,9 +1,9 @@
 from datetime import datetime
 
 import requests
+import pandas as pd
 
 token = "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"
-
 endCursor = ""
 hasNextPage = False
 
@@ -88,19 +88,22 @@ def getPullRequests(name, owner):
     }
     """ % (owner, name)
 
+    prList = []
+
     request = requests.post(url, json={'query': prFirstQuery}, headers=headers)
-    doOperations(request.json())
-    # print(request.json())
+    doOperations(request.json(), prList)
 
     while hasNextPage:
         request = requests.post(url, json={'query': getPRNextQuery(endCursor, name, owner)}, headers=headers)
-        doOperations(request.json())
-        # print(request.json())
+        doOperations(request.json(), prList)
+
+    df = pd.DataFrame(prList)
+    df.to_csv('pullrequestTeste.csv', encoding='utf-8')
 
 
-def doOperations(response):
+def doOperations(response, list):
     checkIfHasNext(response)
-    filterPullRequest(response)
+    filterPullRequest(response, list)
 
 
 def checkIfHasNext(request):
@@ -111,7 +114,7 @@ def checkIfHasNext(request):
     endCursor = request['data']['repository']['pullRequests']['pageInfo']['endCursor']
 
 
-def filterPullRequest(request):
+def filterPullRequest(request, list):
     jsonTotalCount = len(request['data']['repository']['pullRequests']['nodes'])
 
     if jsonTotalCount > 0:
@@ -132,6 +135,7 @@ def filterPullRequest(request):
                     timeSpent = calculateCloseMergeTime(createdAt, mergedAt)
 
                 if timeSpent is not None:
+                    list.append(pullRequest)
                     print(pullRequest)
 
 
@@ -146,27 +150,18 @@ def calculateCloseMergeTime(createdAt, closedMergedAt):
             return divmod(timeInSeconds, 3600)[0]
 
 
-def tester():
-    f = open("repositories.csv", 'r')
-    texto = f.readlines()
+def readFile():
+    fileLines = []
 
-    x = 0
+    with open("repositories.csv") as file:
+        for line in file:
+            fileLines.append(line)
 
-    while x < len(texto):
-        if texto[x] == "\n":
-            local = texto.index(texto[x])
-            texto.pop(local)
-        else:
-            texto[x] = texto[x].split(',')
-            x += 1
-
-    name = texto[10][1]
-    owner = texto[10][2]
-
-    return name, owner
+    return fileLines
 
 
 def main():
-    name, owner = tester()
+    # getPullRequests("system-design-primer", "donnemartin")
 
-    getPullRequests(name, owner)
+    list = readFile()
+    print(list[0])

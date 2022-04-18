@@ -1,0 +1,375 @@
+,id,createdAt,closed,closedAt,merged,mergedAt,bodyText,changedFiles,files,participants,comments,reviews
+0,MDExOlB1bGxSZXF1ZXN0MTA5ODg2MzUw,2017-03-09T10:50:34Z,True,2017-03-10T00:36:12Z,True,2017-03-10T00:36:12Z,"A small fix to change to drop the ""a"" in ""solving a many interview questions"".",1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+1,MDExOlB1bGxSZXF1ZXN0MTA5OTIzMDg2,2017-03-09T14:21:29Z,True,2017-03-10T00:37:40Z,True,2017-03-10T00:37:40Z,,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+2,MDExOlB1bGxSZXF1ZXN0MTEwMDU5NTM1,2017-03-10T04:30:56Z,True,2017-03-11T02:07:51Z,True,2017-03-11T02:07:51Z,#12,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+3,MDExOlB1bGxSZXF1ZXN0MTEwMDc3NzI0,2017-03-10T07:53:56Z,True,2017-03-11T02:06:35Z,True,2017-03-11T02:06:35Z,,1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 1},{'totalCount': 1}
+4,MDExOlB1bGxSZXF1ZXN0MTExMTgxNzI2,2017-03-16T22:49:05Z,True,2017-03-19T19:23:03Z,True,2017-03-19T19:23:03Z,"Changed the links in the main README and in the readme files inside solutions/ to address #6.
+Skipped the links from the files inside solutions/ to the main readme, so that they won't break if the directory structure change.",8,{'totalCount': 8},{'totalCount': 2},{'totalCount': 2},{'totalCount': 1}
+5,MDExOlB1bGxSZXF1ZXN0MTExMzk2MjQy,2017-03-18T04:17:42Z,True,2017-03-18T15:37:17Z,True,2017-03-18T15:37:17Z,,3,{'totalCount': 3},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+6,MDExOlB1bGxSZXF1ZXN0MTExNDE2NTE1,2017-03-18T16:45:40Z,True,2017-03-19T19:24:13Z,True,2017-03-19T19:24:13Z,"Under CDN section, change JSS to JS",1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+7,MDExOlB1bGxSZXF1ZXN0MTExNDcyNTU4,2017-03-19T22:54:10Z,True,2017-03-21T11:39:11Z,True,2017-03-21T11:39:11Z,"As the variable key is not defined, the example could generate a little of confusion in my opinion.
+If we don't want to add more complexity using format(), we should be also able to just do key = ""user.{user_id}.",1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+8,MDExOlB1bGxSZXF1ZXN0MTEyMDU3MDkx,2017-03-22T16:44:21Z,True,2017-03-23T02:53:16Z,True,2017-03-23T02:53:16Z,,1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 1},{'totalCount': 2}
+9,MDExOlB1bGxSZXF1ZXN0MTEyMzUyMzc0,2017-03-23T22:30:10Z,True,2017-03-24T02:42:03Z,True,2017-03-24T02:42:03Z,,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+10,MDExOlB1bGxSZXF1ZXN0MTEyNDM3NTE5,2017-03-24T11:32:50Z,True,2017-03-26T17:02:10Z,False,,"Suggested path of #31
+Update to used consul/etcd as examples of service discovery",1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 4},{'totalCount': 2}
+11,MDExOlB1bGxSZXF1ZXN0MTEyNjA2Mjc5,2017-03-25T22:50:04Z,True,2017-03-29T10:19:15Z,True,2017-03-29T10:19:15Z,I think some developers get confused between PUT & PATCH. This Laracasts comment hopes to provide a clear distinction between the two.,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 2},{'totalCount': 1}
+12,MDExOlB1bGxSZXF1ZXN0MTEyNjM0ODE3,2017-03-26T16:58:09Z,True,2017-03-28T11:45:13Z,True,2017-03-28T11:45:13Z,,1,{'totalCount': 1},{'totalCount': 5},{'totalCount': 1},{'totalCount': 3}
+13,MDExOlB1bGxSZXF1ZXN0MTE0MDk0MzQ5,2017-04-04T08:27:14Z,True,2017-04-04T09:56:39Z,True,2017-04-04T09:56:39Z,"I think that the description for AP should be changed. It currently says that the most recent version of the data might not be the latest.
+The explanation of Consistency uses the same word, recent.
+I have changed AP to qualify 'recent' as being the most recent data available on the node",1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+14,MDExOlB1bGxSZXF1ZXN0MTE2MDE3NzQz,2017-04-15T07:44:20Z,True,2017-04-15T13:32:32Z,True,2017-04-15T13:32:32Z,"At your request (#60), we have created a new branch to squash these commits. Now there's only one commit in the history. 😜",1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 4},{'totalCount': 1}
+15,MDExOlB1bGxSZXF1ZXN0MTE2MDQ3MDA2,2017-04-16T03:17:12Z,True,2017-04-16T21:49:16Z,True,2017-04-16T21:49:16Z,"🚚 The file name of Simplified Chinese translation is wrong, so I corrected it. (#62)",1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 2},{'totalCount': 1}
+16,MDExOlB1bGxSZXF1ZXN0MTE3MDg2NjQy,2017-04-22T00:06:53Z,True,2017-05-16T04:10:52Z,True,2017-05-16T04:10:52Z,,1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 1},{'totalCount': 2}
+17,MDExOlB1bGxSZXF1ZXN0MTE4NjI4MjYz,2017-05-02T19:28:31Z,True,2017-05-16T04:17:24Z,True,2017-05-16T04:17:24Z,Fixed letter case for title layer 7 load balancing,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+18,MDExOlB1bGxSZXF1ZXN0MTE5NjYwMzA0,2017-05-09T13:31:23Z,True,2017-05-27T00:32:45Z,True,2017-05-27T00:32:45Z,,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+19,MDExOlB1bGxSZXF1ZXN0MTIxMjI5NTAy,2017-05-18T08:42:10Z,True,2017-05-27T00:34:53Z,False,,this URL seems cannot visit,2,{'totalCount': 2},{'totalCount': 2},{'totalCount': 0},{'totalCount': 1}
+20,MDExOlB1bGxSZXF1ZXN0MTIyMzU2OTcy,2017-05-25T01:47:16Z,True,2017-05-27T00:31:32Z,True,2017-05-27T00:31:32Z,,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+21,MDExOlB1bGxSZXF1ZXN0MTIyOTIzNjEy,2017-05-29T16:47:48Z,True,2017-05-30T00:55:33Z,True,2017-05-30T00:55:33Z,spot_size is not initialised.,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+22,MDExOlB1bGxSZXF1ZXN0MTI0MjE3NjEz,2017-06-06T15:19:52Z,True,2017-06-14T00:43:11Z,True,2017-06-14T00:43:11Z,"This should make it clear that the code the developer writes for the reduce steps indeed gets an iterable of values, not only a single value.
+That's how the luigi mapreduce framework is designed at least.",1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+23,MDExOlB1bGxSZXF1ZXN0MTI5NjE1Nzcy,2017-07-10T07:25:48Z,True,2017-07-18T02:13:02Z,False,,"Grab is one of the largest transport companies in South-east Asia, and they handle 2.3 million rides daily. Their Engineering Blog content focuses on how they handle the scale of their business and is suitable for learning system design.",2,{'totalCount': 2},{'totalCount': 2},{'totalCount': 3},{'totalCount': 1}
+24,MDExOlB1bGxSZXF1ZXN0MTI5ODE2NTgx,2017-07-11T03:27:24Z,True,2018-10-28T21:25:17Z,False,,"The goal of this change is to have Travis-CI automatically run flake8 tests on every pull request. This will help contributors know if their submissions are going to break the build. To turn on this free service, you would need to do steps 1 and 2 of https://docs.travis-ci.com/user/getting-started/",1,{'totalCount': 1},{'totalCount': 4},{'totalCount': 12},{'totalCount': 2}
+25,MDExOlB1bGxSZXF1ZXN0MTMwODYzODg1,2017-07-17T14:04:37Z,True,2017-07-18T02:08:37Z,True,2017-07-18T02:08:37Z,,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+26,MDExOlB1bGxSZXF1ZXN0MTM1NzQ3Mjcw,2017-08-15T07:19:19Z,True,2018-03-07T00:37:47Z,True,2018-03-07T00:37:47Z,"raise NotImplementedError('Please replace this line with your code...') signals to the user where they need to put their code.
+This approach enables the codebase to be tested with lint tools like flake8, pyflakes, pylint, etc.",7,{'totalCount': 7},{'totalCount': 2},{'totalCount': 8},{'totalCount': 3}
+27,MDExOlB1bGxSZXF1ZXN0MTQzODEzODU2,2017-09-29T06:10:36Z,True,2017-10-09T00:52:45Z,True,2017-10-09T00:52:45Z,,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 2},{'totalCount': 1}
+28,MDExOlB1bGxSZXF1ZXN0MTQ0MTAyODE0,2017-10-02T02:42:48Z,True,2017-10-07T16:06:38Z,True,2017-10-07T16:06:38Z,thank you for an awesome repo. I think I found a minor typo and thought I would correct it.,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+29,MDExOlB1bGxSZXF1ZXN0MTQ3OTYwMDQ5,2017-10-21T19:56:43Z,True,2017-10-25T01:06:00Z,True,2017-10-25T01:06:00Z,,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+30,MDExOlB1bGxSZXF1ZXN0MTQ5MDk5NzI5,2017-10-27T04:40:49Z,True,2017-12-02T01:15:57Z,True,2017-12-02T01:15:57Z,Complete version of japanese translation,1,{'totalCount': 1},{'totalCount': 5},{'totalCount': 9},{'totalCount': 6}
+31,MDExOlB1bGxSZXF1ZXN0MTUzNTI3MTAy,2017-11-20T01:11:18Z,True,2017-11-30T01:12:16Z,True,2017-11-30T01:12:16Z,"tweet n+2                   tweet n+1                   tweet n
+| 8 bytes   8 bytes  1 byte | 8 bytes   8 bytes  1 byte | 8 bytes   7 bytes  1 byte |
+| tweet_id  user_id  meta   | tweet_id  user_id  meta   | tweet_id  user_id  meta   |
+
+should the 7 be 8?",1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+32,MDExOlB1bGxSZXF1ZXN0MTU2NzUyNDYx,2017-12-06T15:03:13Z,True,2017-12-08T01:18:26Z,True,2017-12-08T01:18:26Z,"WHY
+About native there is a shake of the notation of ""ネーティブ"" and ""ネイティブ"" in README-ja.
+I think that it is probably typo. 🤔
+
+original contents:
+
+$ grep -ir ""native"" ./README.md 
+./README.md:RPC is focused on exposing behaviors.  RPCs are often used for performance reasons with internal communications, as you can hand-craft native calls to better fit your use cases.
+./README.md:Choose a native library (aka SDK) when:
+
+
+ja:
+
+$ grep -ir ""ネイティブ"" ./README-ja.md 
+./README-ja.md:ネイティブライブラリー (aka SDK) を呼ぶのは以下の時:
+$ grep -ir ""ネーティブ"" ./README-ja.md 
+./README-ja.md:RPCは振る舞いを公開することに焦点を当てています。RPCは内部通信パフォーマンスを理由として使われることが多いです。というのも、使用する状況に合わせてネーティブコールを自作することができるからです。
+
+WHAT
+FIx typo.(s/ネーティブ/ネイティブ/g)",1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 4},{'totalCount': 1}
+33,MDExOlB1bGxSZXF1ZXN0MTYwNzE1MTQ1,2018-01-02T12:01:03Z,True,2018-01-21T16:51:13Z,False,,,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 2},{'totalCount': 1}
+34,MDExOlB1bGxSZXF1ZXN0MTYxNDc5Mjgx,2018-01-06T12:59:55Z,True,2018-01-21T16:55:00Z,True,2018-01-21T16:55:00Z,,1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 1},{'totalCount': 2}
+35,MDExOlB1bGxSZXF1ZXN0MTYxNDc5NDIw,2018-01-06T13:04:37Z,True,2018-02-02T23:08:50Z,True,2018-02-02T23:08:50Z,,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+36,MDExOlB1bGxSZXF1ZXN0MTYxNDc5NDk4,2018-01-06T13:07:40Z,True,2019-04-10T00:47:00Z,True,2019-04-10T00:47:00Z,,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 3},{'totalCount': 3}
+37,MDExOlB1bGxSZXF1ZXN0MTYxNDc5NTk2,2018-01-06T13:10:29Z,True,2018-02-16T01:37:46Z,True,2018-02-16T01:37:46Z,,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+38,MDExOlB1bGxSZXF1ZXN0MTY1NDU3ODY5,2018-01-26T20:51:15Z,True,2018-02-08T00:57:01Z,True,2018-02-08T00:57:01Z,"#master-slave doesn't go anywhere, the relevant link is #master-slave-replication.",4,{'totalCount': 4},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+39,MDExOlB1bGxSZXF1ZXN0MTY5MDIxMzc2,2018-02-14T04:51:04Z,True,2018-02-28T02:41:24Z,True,2018-02-28T02:41:24Z,"Hi @donnemartin , I've already finished the Traditional Chinese translation which the issue goes here issue. I also add the link by updating the table of content in README.md. Please helps check.
+Thanks.",2,{'totalCount': 2},{'totalCount': 4},{'totalCount': 23},{'totalCount': 8}
+40,MDExOlB1bGxSZXF1ZXN0MTcxMjI4NzIy,2018-02-25T12:51:34Z,True,2018-02-27T02:28:05Z,True,2018-02-27T02:28:05Z,"Scaling up to your first 10 million users url updated to point newer version of the video, 2017 instead of 2015. Includes Microservices architecture overview.",3,{'totalCount': 3},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+41,MDExOlB1bGxSZXF1ZXN0MTcyNTQzNDk2,2018-03-02T16:19:29Z,True,2018-03-04T19:14:45Z,True,2018-03-04T19:14:45Z,"Add proper line break to the links on ""Additional system design interview questions"" and ""Company architectures"" tables",1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+42,MDExOlB1bGxSZXF1ZXN0MTcyODA1Nzgy,2018-03-05T08:53:33Z,True,2018-03-08T01:37:46Z,True,2018-03-08T01:37:46Z,,1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 2},{'totalCount': 1}
+43,MDExOlB1bGxSZXF1ZXN0MTczMzU3MDQ2,2018-03-07T05:32:45Z,True,2018-03-18T13:21:53Z,True,2018-03-18T13:21:53Z,Discovered via #93,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+44,MDExOlB1bGxSZXF1ZXN0MTc0MTQ4NzUw,2018-03-10T02:37:12Z,True,2018-04-09T00:25:12Z,True,2018-04-09T00:25:12Z,The class name is required in this context.  Discovered via #93,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 4},{'totalCount': 2}
+45,MDExOlB1bGxSZXF1ZXN0MTc0MTU4MTE4,2018-03-10T07:14:36Z,True,2018-03-24T23:38:34Z,True,2018-03-24T23:38:34Z,https://docs.python.org/3/library/collections.html#deque-objects  Discovered via #93,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 0},{'totalCount': 1}
+46,MDExOlB1bGxSZXF1ZXN0MTc0OTM1NjA1,2018-03-14T12:11:36Z,True,2018-04-26T01:19:05Z,True,2018-04-26T01:19:05Z,"The function parameter in reducer(self, key, value): is value (without an s) but the function body uses values with an s which creates an undefined name.  Solution: change the function parameter from value to values.  Discovered via #93
+Also fixed a copy-and-paste error and a missing comma error.",3,{'totalCount': 3},{'totalCount': 2},{'totalCount': 2},{'totalCount': 1}
+47,MDExOlB1bGxSZXF1ZXN0MTc4OTUyODA5,2018-04-02T22:52:26Z,True,2018-04-26T01:22:06Z,True,2018-04-26T01:22:06Z,"[] operator can raise KeyError, if query not in dict.",1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 2}
+48,MDExOlB1bGxSZXF1ZXN0MTc4OTUzMDQ2,2018-04-02T22:53:43Z,True,2018-04-26T01:22:26Z,True,2018-04-26T01:22:26Z,[] operator can raise KeyError in dict.,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 2}
+49,MDExOlB1bGxSZXF1ZXN0MTc4OTg3NDkw,2018-04-03T03:54:13Z,True,2020-07-04T14:40:44Z,False,,,1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 1},{'totalCount': 2}
+50,MDExOlB1bGxSZXF1ZXN0MTc5MDE5ODY5,2018-04-03T07:56:28Z,True,2018-04-11T00:28:16Z,True,2018-04-11T00:28:16Z,"This line is to express an asterisk comment,
+space will be parsed into list tag",1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 4},{'totalCount': 2}
+51,MDExOlB1bGxSZXF1ZXN0MTgxNzkyMDgz,2018-04-16T08:53:40Z,True,2018-05-07T01:26:02Z,True,2018-05-07T01:26:02Z,"Resolve the undefined name Enum in two files by importing it from enum.  Also fix a Syntax Error.
+flake8 testing of https://github.com/donnemartin/system-design-primer on Python 3.6
+$ flake8 . --count --select=E901,E999,F821,F822,F823 --show-source --statistics
+./solutions/object_oriented_design/online_chat/online_chat.py:98:21: F821 undefined name 'Enum'
+class RequestStatus(Enum):
+                    ^
+./solutions/system_design/mint/mint_snippets.py:3:25: F821 undefined name 'Enum'
+class DefaultCategories(Enum):
+                        ^
+2    F821 undefined name 'Enum'
+2",2,{'totalCount': 2},{'totalCount': 2},{'totalCount': 2},{'totalCount': 1}
+52,MDExOlB1bGxSZXF1ZXN0MTg0MjQwNDE5,2018-04-26T06:44:04Z,True,2018-05-07T01:25:32Z,True,2018-05-07T01:25:32Z,levels is an undefined name in this context (see #93) so replace it with self.levels which is defined a few lines above.,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+53,MDExOlB1bGxSZXF1ZXN0MTg0MjQ0MTcz,2018-04-26T07:04:46Z,True,2018-05-23T03:15:43Z,True,2018-05-23T03:15:43Z,"In the current code, seller is an unused variable and category is an undefined name (see #93).
+Given that the class is SpendingByCategory, this PR advocates changing seller —> category.",1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+54,MDExOlB1bGxSZXF1ZXN0MTkwODQyNDY4,2018-05-28T06:04:38Z,True,2018-06-16T05:30:42Z,True,2018-06-16T05:30:42Z,fix a spelling mistake,1,{'totalCount': 1},{'totalCount': 4},{'totalCount': 1},{'totalCount': 2}
+55,MDExOlB1bGxSZXF1ZXN0MTk2NzY2NzAw,2018-06-22T15:10:58Z,True,2018-06-29T03:18:12Z,True,2018-06-29T03:18:12Z,"Also replaced the ""performance issues"" link for mysql version 5.7.",1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+56,MDExOlB1bGxSZXF1ZXN0MjAwMTMxNDM4,2018-07-09T15:10:58Z,True,2018-07-13T11:32:15Z,True,2018-07-13T11:32:15Z,PostgreSQl -> PostgreSQL,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+57,MDExOlB1bGxSZXF1ZXN0MjAxMjcwNDEz,2018-07-13T11:58:50Z,True,2018-07-15T00:01:58Z,True,2018-07-15T00:01:58Z,"Fixes #148
+Enables #93
+Replaces #162",1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+58,MDExOlB1bGxSZXF1ZXN0MjAxNDM0NTU4,2018-07-14T03:56:05Z,True,2020-07-18T01:15:48Z,True,2020-07-18T01:15:48Z,,40,{'totalCount': 40},{'totalCount': 3},{'totalCount': 4},{'totalCount': 2}
+59,MDExOlB1bGxSZXF1ZXN0MjAxNDQ0MzYw,2018-07-14T09:33:31Z,True,2018-07-15T00:05:15Z,True,2018-07-15T00:05:15Z,"This PR fixes incorrect translation.
+This line
+長さの決まったフィールドに対しては CHAR よりも VARCHAR を使うようにしましょう。
+
+should be
+長さの決まったフィールドに対しては VARCHAR よりも CHAR を使うようにしましょう。
+
+Original:
+Use CHAR instead of VARCHAR for fixed-length fields.",1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 2},{'totalCount': 1}
+60,MDExOlB1bGxSZXF1ZXN0MjAxNDgyNDQ4,2018-07-15T05:56:01Z,True,2018-07-19T06:09:10Z,True,2018-07-19T06:09:09Z,"This adds a single carriage return to three different files so that this repo compliant with PEP8.
+The rules being corrected for are:
+
+two blank lines before each class definition
+a single carriage return at the end of each file
+
+These changes are suggested by the test:
+$ flake8 . --max-line-length=92 --show-source
+./solutions/system_design/query_cache/query_cache_snippets.py:3:1: E302 expected 2 blank lines, found 1
+class QueryApi(object):
+^
+./solutions/system_design/web_crawler/web_crawler_snippets.py:3:1: E302 expected 2 blank lines, found 1
+class PagesDataStore(object):
+^
+./solutions/object_oriented_design/hash_table/hash_map.py:38:40: W292 no newline at end of file
+        raise KeyError('Key not found')
+                                       ^",3,{'totalCount': 3},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+61,MDExOlB1bGxSZXF1ZXN0MjAxNTY0ODc2,2018-07-16T08:08:25Z,True,2018-07-20T04:46:36Z,True,2018-07-20T04:46:36Z,,1,{'totalCount': 1},{'totalCount': 5},{'totalCount': 5},{'totalCount': 1}
+62,MDExOlB1bGxSZXF1ZXN0MjAyNDc0NDY3,2018-07-19T07:57:12Z,True,2018-07-25T01:55:55Z,True,2018-07-25T01:55:55Z,,4,{'totalCount': 4},{'totalCount': 3},{'totalCount': 1},{'totalCount': 2}
+63,MDExOlB1bGxSZXF1ZXN0MjAzMDA2MjIw,2018-07-21T11:33:22Z,True,2018-07-23T06:13:03Z,True,2018-07-23T06:13:03Z,,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+64,MDExOlB1bGxSZXF1ZXN0MjAzMDQyNDI5,2018-07-22T06:33:12Z,True,2018-07-23T06:12:15Z,False,,,5,{'totalCount': 5},{'totalCount': 3},{'totalCount': 0},{'totalCount': 1}
+65,MDExOlB1bGxSZXF1ZXN0MjA0MDEyMjI4,2018-07-26T02:30:00Z,True,2018-07-27T02:04:01Z,False,,English -> Chinese,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 0},{'totalCount': 1}
+66,MDExOlB1bGxSZXF1ZXN0MjA2MjAzNTk5,2018-08-04T18:15:33Z,True,2018-08-05T13:52:04Z,True,2018-08-05T13:52:04Z,The link to the GitHub page was incorrect. Fixed it.,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+67,MDExOlB1bGxSZXF1ZXN0MjA2NDQ0ODUx,2018-08-06T15:59:12Z,True,2018-08-07T01:25:00Z,True,2018-08-07T01:25:00Z,'user' instead of 'home',1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+68,MDExOlB1bGxSZXF1ZXN0MjA2OTExMzg2,2018-08-08T07:04:11Z,True,2018-08-09T12:01:27Z,True,2018-08-09T12:01:27Z,available is more meaningful,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+69,MDExOlB1bGxSZXF1ZXN0MjA3ODA3MjQx,2018-08-12T06:36:14Z,True,2018-08-13T00:49:31Z,True,2018-08-13T00:49:30Z,Resolve #195.,5,{'totalCount': 5},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+70,MDExOlB1bGxSZXF1ZXN0MjA3ODA3ODMz,2018-08-12T06:56:43Z,True,2018-08-14T02:32:16Z,True,2018-08-14T02:32:16Z,,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+71,MDExOlB1bGxSZXF1ZXN0MjA5MzExNjk4,2018-08-18T13:17:20Z,True,2018-08-20T04:38:44Z,True,2018-08-20T04:38:44Z,Align title in System design interview questions with solutions table with the subsequent section.,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+72,MDExOlB1bGxSZXF1ZXN0MjEwMzAyNTM5,2018-08-23T00:52:29Z,True,2018-08-29T00:56:39Z,True,2018-08-29T00:56:39Z,"Fixed some broken links.
+The Hulu blog post seemed to have been completely removed, so I changed the link to point to a Wayback Machine link instead.
+Removed the link to the Autodesk Cloud Engineering blog, since I couldn't find its current location.",1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+73,MDExOlB1bGxSZXF1ZXN0MjEwNTE0MDk5,2018-08-23T17:00:30Z,True,2018-08-24T06:24:59Z,True,2018-08-24T06:24:59Z,A simple typo fix in CAP theorem section in README,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+74,MDExOlB1bGxSZXF1ZXN0MjEyNDcyMDUx,2018-08-31T19:14:04Z,True,2018-09-02T18:10:43Z,True,2018-09-02T18:10:43Z,"Previous link would cause download to be an incorrectly formatted apkg file.
+Changed the links to absolute links to the files instead of relative links.
+See Issue #126.",1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+75,MDExOlB1bGxSZXF1ZXN0MjEyNjA2NzY0,2018-09-02T19:00:51Z,True,2019-05-12T10:21:15Z,True,2019-05-12T10:21:15Z,"Hey donnemartin,
+Great Writeup!
+I wanted to get this onto my Kindle and noticed that there is no ebook version of the book.
+I figured I'd write a script to generate one.
+To use it, you need Pandoc installed.
+Then, just execute ./generate.sh.
+Maybe you could publish the ebooks via Github Releases :)",7,{'totalCount': 7},{'totalCount': 3},{'totalCount': 6},{'totalCount': 1}
+76,MDExOlB1bGxSZXF1ZXN0MjEyOTY0ODc0,2018-09-04T12:50:56Z,True,2018-09-14T21:10:40Z,True,2018-09-14T21:10:40Z,,1,{'totalCount': 1},{'totalCount': 4},{'totalCount': 2},{'totalCount': 3}
+77,MDExOlB1bGxSZXF1ZXN0MjEzNTMyMjg4,2018-09-06T08:18:18Z,True,2018-09-16T07:48:51Z,True,2018-09-16T07:48:51Z,change 度量 to 扩展 for scaling,1,{'totalCount': 1},{'totalCount': 4},{'totalCount': 2},{'totalCount': 3}
+78,MDExOlB1bGxSZXF1ZXN0MjEzNzE5NjMy,2018-09-06T19:07:21Z,True,2018-09-08T00:47:44Z,True,2018-09-08T00:47:44Z,,1,{'totalCount': 1},{'totalCount': 4},{'totalCount': 1},{'totalCount': 3}
+79,MDExOlB1bGxSZXF1ZXN0MjE1NTU5MDk2,2018-09-14T11:04:42Z,True,2018-09-15T07:29:04Z,True,2018-09-15T07:29:04Z,,1,{'totalCount': 1},{'totalCount': 4},{'totalCount': 2},{'totalCount': 3}
+80,MDExOlB1bGxSZXF1ZXN0MjE1NzgzODcz,2018-09-15T18:52:40Z,True,2018-09-19T00:10:27Z,True,2018-09-19T00:10:27Z,"The cassandra architecture link was pointing to an old, archived version of cassandra. Since they have the same document but in a new version, I found it fair to update it. I don't know if the correct would be changing only english or all four languages versions, I am only updating the english one in this commit/PR. The link itself appear twice per readme file. A simple sed -i 's/\/archived\/cassandra\/2\.0\/cassandra\/architecture\/architectureIntro\_c/\/cassandra\/3\.0\/cassandra\/architecture\/architectureIntro/g' README* can make it for all.",1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 2},{'totalCount': 4}
+81,MDExOlB1bGxSZXF1ZXN0MjE2ODEwOTA5,2018-09-20T00:12:19Z,True,2018-09-24T00:12:12Z,True,2018-09-24T00:12:12Z,,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 0},{'totalCount': 1}
+82,MDExOlB1bGxSZXF1ZXN0MjE3NDQxOTM3,2018-09-22T06:21:25Z,True,2022-04-15T11:11:49Z,False,,"This is somewhat of a tricky pull request that with all honesty I don't expect to get merged.
+There are still some that feel that there are benifits of using the 'well-known' terminology of master and slave far rather than those without negative historic connotations such as leader/follower or primary/replica citing readability etc..
+However, I hope you will atleast consider seriously altering the language in this repository, especially if it's helpful as a tool for interviews to work on large-scale systems given many companies have adopted either leader/follower or primary/replica, as alternate terms of reference.
+Some examples its alteration, and conversation around it can be found below. I have tried to find some who haven't made the move in order to provide a balanced argument, feel free to add more in the comments:
+
+
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html
+
+
+https://docs.microsoft.com/en-us/previous-versions/system-center/system-center-2012-R2/hh846234(v=technet.10)
+
+
+django/django#2694
+
+
+https://docs.pivotal.io/p-mysql/2-2/about-leader-follower.html
+
+
+https://www.ibm.com/support/knowledgecenter/SSSH5A_8.0.0/com.ibm.rational.clearquest.ms_admin.doc/topics/c_cr_db_replica_ovw.htm
+
+
+https://issues.apache.org/jira/browse/COUCHDB-2248
+
+
+https://support.cloud.engineyard.com/hc/en-us/articles/205408108-Set-Up-Database-Replication
+
+
+https://www.theregister.co.uk/2018/09/11/python_purges_master_and_slave_in_political_pogrom/
+
+
+redis/redis#3185
+
+
+https://www.drupal.org/project/drupal/issues/2275877
+
+
+I think even if there's just a footnote referencing that some feel that this is no longer an acceptable reference, that's also an option.",11,{'totalCount': 11},{'totalCount': 6},{'totalCount': 5},{'totalCount': 6}
+83,MDExOlB1bGxSZXF1ZXN0MjE3NDQ1Nzk2,2018-09-22T08:15:36Z,True,2018-10-01T00:38:29Z,True,2018-10-01T00:38:29Z,fixes #214,2,{'totalCount': 2},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+84,MDExOlB1bGxSZXF1ZXN0MjIxMTcwNDI4,2018-10-08T16:08:15Z,True,2018-10-11T01:13:43Z,True,2018-10-11T01:13:43Z,,4,{'totalCount': 4},{'totalCount': 3},{'totalCount': 1},{'totalCount': 2}
+85,MDExOlB1bGxSZXF1ZXN0MjIyOTUwMjE5,2018-10-15T15:34:37Z,True,2018-10-26T00:20:27Z,True,2018-10-26T00:20:27Z,"original contents:
+Object-oriented ...
+Document-oriented...
+
+
+ja
+オブジェクト思考 ... or
+オブジェクト指向 ... or
+ドキュメント志向...
+
+
+oriented is ""指向"" in Japanese.
+""思考"" and ""志向"" are incorrect.",1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 4},{'totalCount': 1}
+86,MDExOlB1bGxSZXF1ZXN0MjI0MDg4NTU2,2018-10-18T20:27:58Z,True,2018-10-31T22:34:52Z,True,2018-10-31T22:34:52Z,"There are some broken anchors due to uppercase characters, parentheses, or colons. So I use the headings of README-zh-TW.md to fix some links of the Index of system design topics (系統設計主題的索引) section.",1,{'totalCount': 1},{'totalCount': 4},{'totalCount': 4},{'totalCount': 2}
+87,MDExOlB1bGxSZXF1ZXN0MjI3NTkyNjU3,2018-11-01T11:43:13Z,True,2018-11-14T01:23:22Z,True,2018-11-14T01:23:22Z,add A 360 Degree View Of The Entire Netflix Stack,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 2},{'totalCount': 1}
+88,MDExOlB1bGxSZXF1ZXN0MjMwOTE5MDk4,2018-11-14T17:26:54Z,True,2018-12-15T04:10:09Z,False,,Change in formatting the text in points which was earlier jumbled in one line.,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+89,MDExOlB1bGxSZXF1ZXN0MjMxMTE3OTk0,2018-11-15T09:10:35Z,True,2018-12-19T02:17:01Z,True,2018-12-19T02:17:01Z,"@donnemartin
+Fixes #228",4,{'totalCount': 4},{'totalCount': 3},{'totalCount': 4},{'totalCount': 4}
+90,MDExOlB1bGxSZXF1ZXN0MjMzMzUyMzc5,2018-11-25T02:49:01Z,True,2019-05-12T11:19:23Z,True,2019-05-12T11:19:23Z,"Points:
+
+9s of availability with example of 99.9 and 99.99 percentage
+Difference in availability with components in sequence or parallel",1,{'totalCount': 1},{'totalCount': 5},{'totalCount': 7},{'totalCount': 7}
+91,MDExOlB1bGxSZXF1ZXN0MjMzNDQ4MDQx,2018-11-26T06:10:39Z,True,2019-04-10T00:44:49Z,False,,"Seems to be simple typo, comparison can be made to User Graph Service implementation: section of README.md.",1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 1},{'totalCount': 2}
+92,MDExOlB1bGxSZXF1ZXN0MjQxNDc2NzM0,2018-12-30T05:21:15Z,True,2019-01-05T17:20:17Z,True,2019-01-05T17:20:17Z,,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+93,MDExOlB1bGxSZXF1ZXN0MjQ0NjU2Nzcy,2019-01-15T02:37:22Z,True,2019-01-20T19:59:43Z,True,2019-01-20T19:59:43Z,,1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 1},{'totalCount': 2}
+94,MDExOlB1bGxSZXF1ZXN0MjQ3NDI5ODA4,2019-01-24T18:20:06Z,True,2019-02-03T12:35:25Z,True,2019-02-03T12:35:25Z,organized by is more correct than organized in either,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+95,MDExOlB1bGxSZXF1ZXN0MjUxNzEwMjQ5,2019-02-10T01:21:37Z,True,2019-02-11T10:48:37Z,True,2019-02-11T10:48:37Z,,1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 1},{'totalCount': 2}
+96,MDExOlB1bGxSZXF1ZXN0MjUxNzQ5MTY4,2019-02-10T16:30:39Z,True,2019-05-11T16:42:59Z,True,2019-05-11T16:42:59Z,"Hi,
+Here is an update to translate the language list as discussed here: #249
+I will also add the french translation as WIP once this one will be merged.",1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 4},{'totalCount': 1}
+97,MDExOlB1bGxSZXF1ZXN0MjU0Nzk1NzMy,2019-02-20T21:12:04Z,True,2019-02-28T11:55:51Z,True,2019-02-28T11:55:51Z,"""document-store"" -> ""document store""",1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+98,MDExOlB1bGxSZXF1ZXN0MjU3MDk0MzY1,2019-02-28T14:38:27Z,True,2019-03-04T03:28:44Z,True,2019-03-04T03:28:44Z,I will come back around a bit later and make this change for all code snippets throughout.,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+99,MDExOlB1bGxSZXF1ZXN0MjU3Njk3NTA3,2019-03-02T22:43:37Z,True,2019-03-18T00:55:20Z,True,2019-03-18T00:55:20Z,"There is no anchor for #sql on the README page, so I changed it to the most related topic #relational-database-management-system-rdbms",1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+100,MDExOlB1bGxSZXF1ZXN0MjcwMjIzOTIw,2019-04-13T12:45:54Z,True,2019-05-07T10:24:42Z,True,2019-05-07T10:24:42Z,"Quick run through all embedded python snippets to enable syntax highlighting.
+There are possibly other formats to be enabled, which I'll come back to later.
+Hope this helps!",10,{'totalCount': 10},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+101,MDExOlB1bGxSZXF1ZXN0MjczNzY2MDM1,2019-04-26T05:31:50Z,True,2019-06-16T15:21:22Z,True,2019-06-16T15:21:22Z,@sqrthree pls review.,2,{'totalCount': 2},{'totalCount': 3},{'totalCount': 6},{'totalCount': 8}
+102,MDExOlB1bGxSZXF1ZXN0Mjc1NDQ0MzMw,2019-05-02T17:02:24Z,True,2019-05-07T10:22:13Z,True,2019-05-07T10:22:13Z,,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+103,MDExOlB1bGxSZXF1ZXN0Mjg5NjM1Nzg5,2019-06-19T10:19:06Z,True,2019-07-06T15:07:14Z,True,2019-07-06T15:07:14Z,"This fix on the translation is a correction based on the original English version:
+
+  
+    
+      system-design-primer/README.md
+    
+    
+         Line 1003
+      in
+      33431e6
+    
+  
+  
+    
+
+        
+          
+           A key-value store generally allows for O(1) reads and writes and is often backed by memory or SSD.  Data stores can maintain keys in [lexicographic order](https://en.wikipedia.org/wiki/Lexicographical_order), allowing efficient retrieval of key ranges.  Key-value stores can allow for storing of metadata with a value. 
+        
+    
+  
+
+
+No change on the original version.
+Ref:
+https://github.com/donnemartin/system-design-primer/blob/master/CONTRIBUTING.md#changes-to-translations",1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 3},{'totalCount': 1}
+104,MDExOlB1bGxSZXF1ZXN0MjkzMDU1MTk1,2019-06-29T18:29:29Z,True,2020-07-11T01:01:13Z,True,2020-07-11T01:01:12Z,"In several parts of the article there is a ""disk"" as a permanent storage medium. In the changed paragraph there is ""SSD"" (flash disk), and in the opposition to it ""disk"", although it is about HDD (magnetic disk).",1,{'totalCount': 1},{'totalCount': 5},{'totalCount': 2},{'totalCount': 4}
+105,MDExOlB1bGxSZXF1ZXN0Mjk0OTQ5ODI2,2019-07-05T18:04:55Z,True,2019-08-03T14:06:58Z,True,2019-08-03T14:06:58Z,"""best effort"" should be literally ""ベストエフォート"" in Japanese.
+""メムキャッシュ"" is overtranslation. Remain in English: ""memecached"".
+The modification structure of last sentence in Japanese is ambiguous.",1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 2},{'totalCount': 2}
+106,MDExOlB1bGxSZXF1ZXN0Mjk1Mzk1MTEx,2019-07-08T15:46:23Z,True,2019-08-03T14:07:35Z,True,2019-08-03T14:07:35Z,"“provide” means “用意” or “提供”, rather than “配信” (distribute/publish).
+Clarified who takes responsibility.",1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 1},{'totalCount': 2}
+107,MDExOlB1bGxSZXF1ZXN0Mjk1Mzk5Njg4,2019-07-08T15:57:57Z,True,2019-08-03T14:07:59Z,True,2019-08-03T14:07:59Z,"The Japanese translation is ambiguous about “vertical scaling” means scaling out or scaling up.
+The word “expensive” is missing in the Japanese translation.",1,{'totalCount': 1},{'totalCount': 4},{'totalCount': 3},{'totalCount': 2}
+108,MDExOlB1bGxSZXF1ZXN0Mjk2MjIxMTUz,2019-07-10T15:13:37Z,True,2019-08-03T14:08:19Z,True,2019-08-03T14:08:19Z,"Fix mistranslation of parallel structure. (not information/blacklist/limit, but hide/blacklist/limit)",1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 1},{'totalCount': 2}
+109,MDExOlB1bGxSZXF1ZXN0Mjk2MjI3NTky,2019-07-10T15:27:54Z,True,2019-08-05T00:30:54Z,True,2019-08-05T00:30:54Z,""":"" in the second paragraph is not properly translated.
+""have"" (持つ) in the second paragraph shouldn't be literally translated in this situation.
+""therefore"" (その結果) in the second paragraph is missing in the translation.
+The translation of ""replication"" should be standardized into ""レプリケーション"".
+""用いる"" (use) in ""データベースを用いる"" would be mistranslation of ""result in"" (〜なることで).
+The meaning of the third paragraph is translated incorrectly because ""cache locality"" (キャッシュの局所性) is mistranslated into ""ローカルキャッシュ"" (local cache).
+The meaning of the 4th paragraph is translated incorrectly because ""serializing"" (直列化) is missing in the translation.",1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 1},{'totalCount': 2}
+110,MDExOlB1bGxSZXF1ZXN0Mjk4OTgwOTcy,2019-07-18T15:53:00Z,True,2019-12-09T03:35:45Z,True,2019-12-09T03:35:45Z,Fixed mistranslations and made translations more fluent.,1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 3},{'totalCount': 3}
+111,MDExOlB1bGxSZXF1ZXN0MzAwMzY5NzM2,2019-07-23T16:09:07Z,True,2019-08-13T23:50:10Z,True,2019-08-13T23:50:10Z,"The original translation is explanation of the feature of Anki app (spaced repetition), rather than the flashcard decks.",1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 2},{'totalCount': 2}
+112,MDExOlB1bGxSZXF1ZXN0MzAwMzcwMTkz,2019-07-23T16:10:20Z,True,2019-08-13T23:50:53Z,True,2019-08-13T23:50:53Z,"""単一障害点が除かれたことにはなりません"" (It doesn’t mean the single point of failure is removed) is not found in the original text (it looks over-translated).
+""それすなわち複雑化です"" in the original Japanese translation doesn’t make sense.",1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 2},{'totalCount': 2}
+113,MDExOlB1bGxSZXF1ZXN0MzAwMzcwNjgy,2019-07-23T16:11:36Z,True,2019-08-13T23:51:20Z,True,2019-08-13T23:51:20Z,"Consul, Etcd, and Zookeeper don’t find each other, but the services in those systems do.
+""integrity"" means ""完全性"" in Japanese. ""統一性"" isn’t used in this kind of context.
+Make the translation more fluent (""しばしば"" for ""often"", and ""そして"" for ""and"" are too literal).",1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 2},{'totalCount': 2}
+114,MDExOlB1bGxSZXF1ZXN0MzAxODQ5OTEw,2019-07-28T18:11:56Z,True,2020-07-10T00:49:44Z,True,2020-07-10T00:49:44Z,"It is clearer to say that a user receives data ""from"" a data center then it is to say that a user receives data ""at"" a data center.",1,{'totalCount': 1},{'totalCount': 4},{'totalCount': 1},{'totalCount': 3}
+115,MDExOlB1bGxSZXF1ZXN0MzEyOTc4ODQ5,2019-08-31T20:03:32Z,True,2020-07-01T00:56:56Z,True,2020-07-01T00:56:56Z,,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+116,MDExOlB1bGxSZXF1ZXN0MzEyOTkyMzE4,2019-09-01T01:03:33Z,True,2019-12-09T03:34:17Z,True,2019-12-09T03:34:17Z,change CN translation to make it more accurate. SQL tuning -> Blob,1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 1},{'totalCount': 2}
+117,MDExOlB1bGxSZXF1ZXN0MzE1MzcwMTk4,2019-09-09T05:59:32Z,True,2020-07-10T00:48:47Z,True,2020-07-10T00:48:47Z,Added Amazon AWS public docs link for better understanding of latency based and geo-location based routing.,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+118,MDExOlB1bGxSZXF1ZXN0MzE1OTU0ODA1,2019-09-10T11:50:46Z,True,2020-07-09T00:10:17Z,True,2020-07-09T00:10:17Z,,1,{'totalCount': 1},{'totalCount': 4},{'totalCount': 2},{'totalCount': 5}
+119,MDExOlB1bGxSZXF1ZXN0MzMyNDIxODM5,2019-10-25T09:26:41Z,True,2019-11-03T10:50:01Z,False,,,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 0},{'totalCount': 1}
+120,MDExOlB1bGxSZXF1ZXN0MzM0MTEwODM3,2019-10-30T09:12:43Z,True,2019-11-03T10:47:08Z,False,,Sync,0,{'totalCount': 0},{'totalCount': 2},{'totalCount': 0},{'totalCount': 1}
+121,MDExOlB1bGxSZXF1ZXN0MzQxNzE4ODk5,2019-11-16T03:54:40Z,True,2020-07-09T00:08:56Z,False,,"The previous url led to an empty page - searching on the site
+for ""round robin"" let to this article.",1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 1},{'totalCount': 2}
+122,MDExOlB1bGxSZXF1ZXN0MzQ5NzI2NjYx,2019-12-06T01:52:23Z,True,2020-07-05T14:57:58Z,True,2020-07-05T14:57:58Z,"Hi,
+This change fixes the Korean index by using the Korean alphabet, Hangul.
+
+韓國語 -> 한국어
+
+Hangul is the official writing system of Korea.
+https://en.wikipedia.org/wiki/Hangul",4,{'totalCount': 4},{'totalCount': 3},{'totalCount': 1},{'totalCount': 2}
+123,MDExOlB1bGxSZXF1ZXN0MzU2OTA0OTY4,2019-12-26T08:06:00Z,True,2019-12-27T01:11:58Z,True,2019-12-27T01:11:58Z,"flake8 . --count --exit-zero --max-complexity=10 --statistics
+./solutions/object_oriented_design/call_center/call_center.py:69:9:
+F901 'raise NotImplemented' should be 'raise NotImplementedError'
+
+https://docs.python.org/3/library/exceptions.html#NotImplementedError",1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+124,MDExOlB1bGxSZXF1ZXN0MzYwMTQ2NjM5,2020-01-07T19:53:37Z,True,2020-02-17T02:00:45Z,True,2020-02-17T02:00:45Z,,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+125,MDExOlB1bGxSZXF1ZXN0MzYwNTA5MDc2,2020-01-08T15:17:00Z,True,2020-07-04T01:22:03Z,True,2020-07-04T01:22:03Z,"…ition of AP under CAP theorem portion.
+Updated the wordings as per issue #164  - Confusing word play in the definition of AP under CAP theorem portion.",1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 1},{'totalCount': 2}
+126,MDExOlB1bGxSZXF1ZXN0MzYxOTAxNDQ2,2020-01-13T02:08:43Z,True,2020-01-15T15:04:08Z,True,2020-01-15T15:04:08Z,Change URLs from http://g33kinfo.com/info/archives/2657 (broken) to https://www.g33kinfo.com/info/2010/02/round-robin-vs-weighted-round-robin-lb,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+127,MDExOlB1bGxSZXF1ZXN0MzY0NDkxMzMx,2020-01-19T03:32:17Z,True,2020-01-21T00:26:10Z,True,2020-01-21T00:26:10Z,Endpoint with trailing slash returns 404.,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+128,MDExOlB1bGxSZXF1ZXN0MzgwOTY4NDc0,2020-02-27T17:08:58Z,True,2020-03-10T01:34:19Z,True,2020-03-10T01:34:19Z,,9,{'totalCount': 9},{'totalCount': 8},{'totalCount': 4},{'totalCount': 1}
+129,MDExOlB1bGxSZXF1ZXN0Mzg1OTc0NTc0,2020-03-10T07:22:13Z,True,2020-03-30T00:40:51Z,True,2020-03-30T00:40:50Z,Related: #374,9,{'totalCount': 9},{'totalCount': 8},{'totalCount': 2},{'totalCount': 1}
+130,MDExOlB1bGxSZXF1ZXN0MzkxOTAwMjMw,2020-03-21T19:21:35Z,True,2020-07-12T16:02:45Z,True,2020-07-12T16:02:45Z,,1,{'totalCount': 1},{'totalCount': 1},{'totalCount': 0},{'totalCount': 1}
+131,MDExOlB1bGxSZXF1ZXN0Mzk3OTE0MzUy,2020-04-03T03:24:29Z,True,2021-04-16T02:52:46Z,False,,Remove invalid link,1,{'totalCount': 1},{'totalCount': 4},{'totalCount': 4},{'totalCount': 1}
+132,MDExOlB1bGxSZXF1ZXN0Mzk5MzI5Mzky,2020-04-06T00:59:48Z,True,2020-07-08T00:56:06Z,True,2020-07-08T00:56:06Z,,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+133,MDExOlB1bGxSZXF1ZXN0NDAwNzc5MTY3,2020-04-08T11:02:07Z,True,2020-07-01T00:42:25Z,True,2020-07-01T00:42:25Z,fix typo: single points -> single point,1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 1},{'totalCount': 2}
+134,MDExOlB1bGxSZXF1ZXN0NDAyMzYyMzU5,2020-04-12T16:16:30Z,True,2020-07-01T00:37:50Z,True,2020-07-01T00:37:50Z,,1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 1},{'totalCount': 2}
+135,MDExOlB1bGxSZXF1ZXN0NDAyNzM1NTQ1,2020-04-13T16:58:08Z,True,2020-07-08T00:54:02Z,True,2020-07-08T00:54:02Z,I feel that this short video explains the CAP theorem really well.,1,{'totalCount': 1},{'totalCount': 4},{'totalCount': 3},{'totalCount': 1}
+136,MDExOlB1bGxSZXF1ZXN0NDA2MjUwMDQ5,2020-04-20T19:16:06Z,True,2020-07-07T01:05:51Z,True,2020-07-07T01:05:51Z,"Making a column a primary key enforces uniqueness, and the db usually does so by creating a unique clustered index. So, you don't need a second index.",1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+137,MDExOlB1bGxSZXF1ZXN0NDA4ODY0NDc5,2020-04-25T07:19:24Z,True,2020-07-04T01:24:24Z,True,2020-07-04T01:24:24Z,"Fixes #339
+@donnemartin @Skn0tt Please check",1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 3},{'totalCount': 2}
+138,MDExOlB1bGxSZXF1ZXN0NDEwMzg0NzM0,2020-04-28T22:03:48Z,True,2020-07-10T10:58:46Z,False,,"Included apache Kafka for event queuing
+added some info on backpressure for parallel consumers",1,{'totalCount': 1},{'totalCount': 10},{'totalCount': 1},{'totalCount': 4}
+139,MDExOlB1bGxSZXF1ZXN0NDEzNzE3MDQ0,2020-05-05T19:45:39Z,True,2020-07-07T01:00:34Z,True,2020-07-07T01:00:34Z,,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+140,MDExOlB1bGxSZXF1ZXN0NDE1NTU5NDg2,2020-05-09T11:13:02Z,True,2020-05-26T01:59:02Z,True,2020-05-26T01:59:02Z,"Upgrading ""Scaling up to your first 10 million users"" video link to https://www.youtube.com/watch?v=kKjm4ehYiMs which is the latest talk as of today",1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+141,MDExOlB1bGxSZXF1ZXN0NDE5MTU3NzIx,2020-05-17T19:02:16Z,True,2020-07-04T14:55:43Z,True,2020-07-04T14:55:43Z,"Made a small change to explain the logic behind the 4,000 search requests per second.",1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+142,MDExOlB1bGxSZXF1ZXN0NDIyMzYyMTgz,2020-05-24T04:41:10Z,True,2020-07-04T14:53:57Z,True,2020-07-04T14:53:57Z,"I believe there's a typo in here and it should say ""federation"" as opposed to ""replication"" as replication does not solve the problem of data size and request load.",1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+143,MDExOlB1bGxSZXF1ZXN0NDM0NzE2MTQw,2020-06-15T18:58:54Z,True,2020-07-10T01:18:58Z,False,,"I have tried to run generate-epub.sh script on my ubuntu 20.04 and pandoc 2.2.3.2
+It failed with error no option metadata-file.
+I found from man-page that epub-metadata works and tested it
+It generated all the epub files .",1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 4},{'totalCount': 10}
+144,MDExOlB1bGxSZXF1ZXN0NDM3NDI2MDM1,2020-06-20T15:33:37Z,True,2020-07-05T14:58:57Z,False,,"Write word ""Korean"" in Korean language from Chinese characters.",4,{'totalCount': 4},{'totalCount': 3},{'totalCount': 2},{'totalCount': 1}
+145,MDExOlB1bGxSZXF1ZXN0NDQyMjYwMzc1,2020-06-30T19:55:56Z,True,2020-07-05T14:53:29Z,True,2020-07-05T14:53:29Z,,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 3},{'totalCount': 2}
+146,MDExOlB1bGxSZXF1ZXN0NDQ0MzAzNzQy,2020-07-04T16:29:59Z,True,2020-07-05T14:48:23Z,True,2020-07-05T14:48:23Z,As pertains to issue #344 with one extra typo spotted during correction.,2,{'totalCount': 2},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+147,MDExOlB1bGxSZXF1ZXN0NDQ0MzUwOTQy,2020-07-05T02:59:05Z,True,2020-07-05T14:50:31Z,True,2020-07-05T14:50:31Z,Clarify availability pattern,1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 1},{'totalCount': 1}
+148,MDExOlB1bGxSZXF1ZXN0NDQ1MTMxMzAy,2020-07-07T03:53:13Z,True,2020-07-12T16:00:04Z,True,2020-07-12T16:00:04Z,fixes #281,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+149,MDExOlB1bGxSZXF1ZXN0NDUwMzI1NjYz,2020-07-16T16:22:54Z,True,2020-08-02T18:10:23Z,True,2020-08-02T18:10:23Z,"Review the Contributing Guidelines
+Before submitting a pull request, verify it meets all requirements in the Contributing Guidelines.
+Translations
+See the Contributing Guidelines.  Verify you've:
+
+Tagged the language maintainer
+Prefixed the title with a language code
+
+Example: ""ja: Fix ...""",1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 3},{'totalCount': 2}
+150,MDExOlB1bGxSZXF1ZXN0NDU2NzQ3NzY5,2020-07-26T13:07:35Z,True,2020-08-02T18:13:18Z,True,2020-08-02T18:13:18Z,Fix TRANSLATIONS.md to absolute path,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+151,MDExOlB1bGxSZXF1ZXN0NTAwNzY4ODg1,2020-10-09T19:01:55Z,True,2020-10-30T01:14:46Z,True,2020-10-30T01:14:46Z,"Fix for #475. The paragraph talking about wide column store also has the dead HBase link. It started redirecting to something different earlier this year.
+The new link goes to a relevant HBase architecture page and contains the same info as the original page from before.",1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+152,MDExOlB1bGxSZXF1ZXN0NTE4NDMxODc2,2020-11-10T11:46:39Z,True,2020-12-29T02:51:33Z,True,2020-12-29T02:51:33Z,Fixed celery task queue link,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+153,MDExOlB1bGxSZXF1ZXN0NTYwNTcwNDgx,2021-01-24T09:27:38Z,True,2021-02-16T02:10:04Z,True,2021-02-16T02:10:04Z,"description
+The link to indieflashblog is broken, I updated it with archive.org last save.
+cf Issue (501)[https://github.com//issues/501]
+Review the Contributing Guidelines
+Before submitting a pull request, verify it meets all requirements in the Contributing Guidelines.
+Translations
+See the Contributing Guidelines.  Verify you've:
+
+Tagged the language maintainer
+Prefixed the title with a language code
+
+Example: ""ja: Fix ...""",4,{'totalCount': 4},{'totalCount': 2},{'totalCount': 0},{'totalCount': 1}
+154,MDExOlB1bGxSZXF1ZXN0NTY2MTQ1ODQ4,2021-02-02T17:44:53Z,True,2021-02-16T02:14:06Z,True,2021-02-16T02:14:06Z,The current URL: https://en.wikipedia.org/wiki/Cache_algorithms#Least_Recently_Used doesn't point to LRU section,1,{'totalCount': 1},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+155,MDExOlB1bGxSZXF1ZXN0NTc4MTAwMzE2,2021-02-23T03:06:20Z,True,2021-05-09T18:20:50Z,True,2021-05-09T18:20:50Z,Dropbox is officially one word according to the company. This makes the entry in the table match all other mentions of the company in README.md,1,{'totalCount': 1},{'totalCount': 3},{'totalCount': 1},{'totalCount': 2}
+156,PR_kwDOBPXfqc4s-_1M,2021-10-10T14:07:05Z,True,2021-11-17T12:26:09Z,True,2021-11-17T12:26:09Z,"As of today, the newest article of https://githubengineering.com and https://github.blog/category/engineering were from 2019/03/05 and 2021/10/06 respectively. Not sure what happened to https://githubengineering.com , but https://github.blog/category/engineering seems to be more up to date.
+
+
+
+https://githubengineering.com
+https://github.blog/category/engineering",4,{'totalCount': 4},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}
+157,PR_kwDOBPXfqc4wOteF,2021-12-23T13:24:04Z,True,2022-02-13T02:52:00Z,True,2022-02-13T02:52:00Z,This PR fixes Link to Memchached architecture and solves #593,4,{'totalCount': 4},{'totalCount': 2},{'totalCount': 1},{'totalCount': 1}

@@ -1,12 +1,12 @@
 from datetime import datetime
 
 import requests
-import pandas as pd
 
 token = "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"
 
 endCursor = ""
 hasNextPage = False
+
 
 def getPRNextQuery(endcursor, name, owner):
     prNextQuery = """
@@ -46,6 +46,7 @@ def getPRNextQuery(endcursor, name, owner):
     """ % (owner, name, endcursor)
 
     return prNextQuery
+
 
 def getPullRequests(name, owner):
     url = 'https://api.github.com/graphql'
@@ -92,13 +93,15 @@ def getPullRequests(name, owner):
     # print(request.json())
 
     while hasNextPage:
-          request = requests.post(url, json={'query': getPRNextQuery(endCursor, name, owner)}, headers=headers)
-          doOperations(request.json())
-          # print(request.json())
+        request = requests.post(url, json={'query': getPRNextQuery(endCursor, name, owner)}, headers=headers)
+        doOperations(request.json())
+        # print(request.json())
+
 
 def doOperations(response):
     checkIfHasNext(response)
     filterPullRequest(response)
+
 
 def checkIfHasNext(request):
     global hasNextPage
@@ -106,6 +109,7 @@ def checkIfHasNext(request):
 
     global endCursor
     endCursor = request['data']['repository']['pullRequests']['pageInfo']['endCursor']
+
 
 def filterPullRequest(request):
     jsonTotalCount = len(request['data']['repository']['pullRequests']['nodes'])
@@ -121,14 +125,15 @@ def filterPullRequest(request):
             closedAt = pullRequest["closedAt"]
             createdAt = pullRequest["createdAt"]
 
-            if (closed or merged) and reviews >=1:
-                if (closed | merged) or (closed and (merged is False)):
+            if (closed or merged) and reviews >= 1:
+                if (closed & merged) or (closed and (merged is False)):
                     timeSpent = calculateCloseMergeTime(createdAt, closedAt)
                 else:
                     timeSpent = calculateCloseMergeTime(createdAt, mergedAt)
 
                 if timeSpent is not None:
                     print(pullRequest)
+
 
 def calculateCloseMergeTime(createdAt, closedMergedAt):
     if (closedMergedAt is not None) and (createdAt is not None):
@@ -139,6 +144,7 @@ def calculateCloseMergeTime(createdAt, closedMergedAt):
 
         if timeInSeconds >= 3600:
             return divmod(timeInSeconds, 3600)[0]
+
 
 def tester():
     f = open("repositories.csv", 'r')
@@ -158,6 +164,7 @@ def tester():
     owner = texto[10][2]
 
     return name, owner
+
 
 def main():
     name, owner = tester()

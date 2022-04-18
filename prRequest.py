@@ -1,4 +1,3 @@
-import json
 from datetime import datetime
 
 import requests
@@ -89,14 +88,17 @@ def getPullRequests(name, owner):
     """ % (owner, name)
 
     request = requests.post(url, json={'query': prFirstQuery}, headers=headers)
-    checkIfHasNext(request.json())
-    filterPullRequest(request.json())
-    print(request.json())
+    doOperations(request.json())
+    # print(request.json())
 
-    # while hasNextPage:
-    #      request = requests.post(url, json={'query': getPRNextQuery(endCursor, name, owner)}, headers=headers)
-    #      checkIfHasNext(request)
-    #      print(request.json())
+    while hasNextPage:
+          request = requests.post(url, json={'query': getPRNextQuery(endCursor, name, owner)}, headers=headers)
+          doOperations(request.json())
+          # print(request.json())
+
+def doOperations(response):
+    checkIfHasNext(response)
+    filterPullRequest(response)
 
 def checkIfHasNext(request):
     global hasNextPage
@@ -104,11 +106,6 @@ def checkIfHasNext(request):
 
     global endCursor
     endCursor = request['data']['repository']['pullRequests']['pageInfo']['endCursor']
-
-def selectPullRequests(request):
-    jsonResponse = request.json()
-
-    print(jsonResponse['data']['repository']['pullRequests']['nodes']["reviews"])
 
 def filterPullRequest(request):
     jsonTotalCount = len(request['data']['repository']['pullRequests']['nodes'])
@@ -125,12 +122,9 @@ def filterPullRequest(request):
             createdAt = pullRequest["createdAt"]
 
             if (closed or merged) and reviews >=1:
-                # PRECISA DE RESOLVER AQUI NÃO FAÇO IDEIA DE COMO FAZER AS CONDIÇOES
-               if closed and merged:
-                    timeSpent = calculateCloseMergeTime(createdAt, mergedAt)
-                elif closed and merged is None:
+                if (closed | merged) or (closed and (merged is False)):
                     timeSpent = calculateCloseMergeTime(createdAt, closedAt)
-                elif merged and closed is None:
+                else:
                     timeSpent = calculateCloseMergeTime(createdAt, mergedAt)
 
                 if timeSpent is not None:

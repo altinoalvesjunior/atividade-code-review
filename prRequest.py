@@ -1,18 +1,19 @@
+import json
 from datetime import datetime
 
 import requests
 import pandas as pd
+from csv2json import convert, load_csv, save_json
 
 token = "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"
 endCursor = ""
 hasNextPage = False
 
-
 def getPRNextQuery(endcursor, name, owner):
     prNextQuery = """
     {
       repository(owner: "%s", name: "%s") {
-        pullRequests(first: 50, after: "%s") {
+        pullRequests(first: 10, after: "%s") {
           totalCount
           nodes {
             id
@@ -55,7 +56,7 @@ def getPullRequests(name, owner):
     prFirstQuery = """
     {
       repository(owner: "%s", name: "%s") {
-        pullRequests(first: 50) {
+        pullRequests(first: 10) {
           totalCount
           nodes {
             id
@@ -91,11 +92,14 @@ def getPullRequests(name, owner):
     prList = []
 
     request = requests.post(url, json={'query': prFirstQuery}, headers=headers)
-    doOperations(request.json(), prList)
 
-    while hasNextPage:
-        request = requests.post(url, json={'query': getPRNextQuery(endCursor, name, owner)}, headers=headers)
+    if request.status_code == 200:
         doOperations(request.json(), prList)
+        while hasNextPage:
+            request = requests.post(url, json={'query': getPRNextQuery(endCursor, name, owner)}, headers=headers)
+            doOperations(request.json(), prList)
+    # elif request.status_code == 502:
+    # do token logic
 
     df = pd.DataFrame(prList)
     df.to_csv('pullrequestTeste.csv', encoding='utf-8')
@@ -109,6 +113,9 @@ def doOperations(response, list):
 def checkIfHasNext(request):
     global hasNextPage
     hasNextPage = request['data']['repository']['pullRequests']['pageInfo']['hasNextPage']
+
+    # if hasNextPage != True:
+        # salvar aqui processado
 
     global endCursor
     endCursor = request['data']['repository']['pullRequests']['pageInfo']['endCursor']
@@ -129,7 +136,7 @@ def filterPullRequest(request, list):
             createdAt = pullRequest["createdAt"]
 
             if (closed or merged) and reviews >= 1:
-                if (closed & merged) or (closed and (merged is False)):
+                if (closed and merged) or (closed and not merged):
                     timeSpent = calculateCloseMergeTime(createdAt, closedAt)
                 else:
                     timeSpent = calculateCloseMergeTime(createdAt, mergedAt)
@@ -150,18 +157,18 @@ def calculateCloseMergeTime(createdAt, closedMergedAt):
             return divmod(timeInSeconds, 3600)[0]
 
 
-def readFile():
-    fileLines = []
-
-    with open("repositories.csv") as file:
-        for line in file:
-            fileLines.append(line)
-
-    return fileLines
+def convertCsvToJson(csvFileName, jsonFileName):
+    with open(csvFileName + '.csv') as r, open(jsonFileName + '.json', 'w') as w:
+        convert(r, w)
 
 
 def main():
-    # getPullRequests("system-design-primer", "donnemartin")
+    convertCsvToJson("repositories", "repositories")
 
-    list = readFile()
-    print(list[0])
+    with open('repositories.json') as f:
+        repositoriesList = json.load(f)
+
+    # for i in range(len(repositoriesList)):
+    #     getPullRequests(repositoriesList[i]['name'], repositoriesList[i]['owner'])
+
+    getPullRequests("system-design-primer", "donnemartin")

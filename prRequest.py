@@ -100,8 +100,7 @@ def getPullRequests(name, owner):
         while hasNextPage:
             request = requests.post(url, json={'query': getPRNextQuery(endCursor, name, owner)}, headers=headers)
             doOperations(request.json(), prList)
-    else if request.status_code == 502
-
+            
     # elif request.status_code == 502:
     # do token logic
 

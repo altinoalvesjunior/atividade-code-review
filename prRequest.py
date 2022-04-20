@@ -1,6 +1,7 @@
 import json
 from datetime import datetime
 from pymongo import MongoClient
+from mongo import Mongo
 
 import requests
 import pandas as pd
@@ -15,7 +16,9 @@ hasNextPage = False
 
 tokens = [tokenAlt, tokenLe, tokenLucas]
 cursorCount = 0
-token = tokens[cursorCount % 3]
+
+token = tokenAlt
+    # tokens[cursorCount % 3]
 
 client = MongoClient()
 
@@ -99,33 +102,28 @@ def getPullRequests(name, owner):
     }
     """ % (owner, name)
 
-    prList = []
-
     request = requests.post(url, json={'query': prFirstQuery}, headers=headers)
 
     if request.status_code == 200:
-        doOperations(request.json(), prList)
+        doOperations(request.json())
         while hasNextPage:
 
             request = requests.post(url, json={'query': getPRNextQuery(endCursor, name, owner)}, headers=headers)
-            doOperations(request.json(), prList)
-    elif request.status_code == 502:
-        global cursorCount
-        cursorCount += 1
-
-        global token
-        token = tokens[cursorCount % 3]
-
-        request = requests.post(url, json={'query': getPRNextQuery(endCursor, name, owner)}, headers=headers)
-        doOperations(request.json(), prList)
-
-    df = pd.DataFrame(prList)
-    df.to_csv('pullrequestTeste.csv', encoding='utf-8')
+            doOperations(request.json())
+    # elif request.status_code == 502:
+    #     global cursorCount
+    #     cursorCount += 1
+    #
+    #     global token
+    #     token = tokens[cursorCount % 3]
+    #
+    #     request = requests.post(url, json={'query': getPRNextQuery(endCursor, name, owner)}, headers=headers)
+    #     doOperations(request.json(), prList)
 
 
-def doOperations(response, list):
+def doOperations(response):
     checkIfHasNext(response)
-    filterPullRequest(response, list)
+    filterPullRequest(response)
 
 
 def checkIfHasNext(request):
@@ -139,7 +137,7 @@ def checkIfHasNext(request):
     endCursor = request['data']['repository']['pullRequests']['pageInfo']['endCursor']
 
 
-def filterPullRequest(request, list):
+def filterPullRequest(request):
     jsonTotalCount = len(request['data']['repository']['pullRequests']['nodes'])
 
     if jsonTotalCount > 0:
@@ -160,6 +158,7 @@ def filterPullRequest(request, list):
                     timeSpent = calculateCloseMergeTime(createdAt, mergedAt)
 
                 if timeSpent is not None:
+                    Mongo().insert_one(pullRequest)
                     list.append(pullRequest)
                     print(pullRequest)
 

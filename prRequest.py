@@ -18,7 +18,7 @@ def getPRNextQuery(endcursor, name, owner):
     prNextQuery = """
     {
       repository(owner: "%s", name: "%s") {
-        pullRequests(first: 10, after: "%s") {
+        pullRequests(first: 25, after: "%s") {
           totalCount
           nodes {
             id
@@ -71,7 +71,7 @@ def getPullRequests(name, owner):
     prFirstQuery = """
     {
       repository(owner: "%s", name: "%s") {
-        pullRequests(first: 10) {
+        pullRequests(first: 100) {
           totalCount
           nodes {
             id
@@ -109,7 +109,6 @@ def getPullRequests(name, owner):
     if request.status_code == 200:
         doOperations(request.json(), name)
         while hasNextPage:
-
             request = requests.post(url, json={'query': getPRNextQuery(endCursor, name, owner)}, headers=headers)
             doOperations(request.json(), name)
     elif request.status_code == 502:
@@ -121,16 +120,16 @@ def getPullRequests(name, owner):
 
 
 def doOperations(response, name):
-    checkIfHasNext(response)
+    checkIfHasNext(response, name)
     filterPullRequest(response, name)
 
 
-def checkIfHasNext(request):
+def checkIfHasNext(request, name):
     global hasNextPage
     hasNextPage = request['data']['repository']['pullRequests']['pageInfo']['hasNextPage']
 
-    # if hasNextPage != True:
-        # salvar aqui processado
+    if hasNextPage != True:
+        Mongo().insert_repository(name)
 
     global endCursor
     endCursor = request['data']['repository']['pullRequests']['pageInfo']['endCursor']
@@ -174,7 +173,7 @@ def filterPullRequest(request, name):
 
                 if timeSpent is not None:
                     prFormatted = format(pullRequest)
-                    # Mongo().insert_one(prFormatted)
+                    Mongo().insert_one(prFormatted)
                     print(prFormatted)
 
 
@@ -199,8 +198,7 @@ def main():
 
     with open('repositories.json') as f:
         repositoriesList = json.load(f)
+    for i in range(len(repositoriesList)):
+        getPullRequests(repositoriesList[i]['name'], repositoriesList[i]['owner'])
 
-    # for i in range(len(repositoriesList)):
-    #     getPullRequests(repositoriesList[i]['name'], repositoriesList[i]['owner'])
-
-    getPullRequests("system-design-primer", "donnemartin")
+    # getPullRequests("system-design-primer", "donnemartin")

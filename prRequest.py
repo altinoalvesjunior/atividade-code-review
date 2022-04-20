@@ -1,4 +1,5 @@
 import json
+import time
 from datetime import datetime
 from pymongo import MongoClient
 from mongo import Mongo
@@ -6,18 +7,10 @@ from mongo import Mongo
 import requests
 from csv2json import convert, load_csv, save_json
 
-tokenAlt = "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"
-tokenLe = "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"
-tokenLucas = "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"
-
 endCursor = ""
 hasNextPage = False
 
-tokens = [tokenAlt, tokenLe, tokenLucas]
 cursorCount = 0
-
-token = tokenAlt
-    # tokens[cursorCount % 3]
 
 client = MongoClient()
 
@@ -62,6 +55,16 @@ def getPRNextQuery(endcursor, name, owner):
 
 
 def getPullRequests(name, owner):
+
+    tokens = ["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",
+              "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",
+              "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"]
+
+    global token
+    global cursorCount
+    token = tokens[cursorCount % 3]
+    print('Token é ', token)
+
     url = 'https://api.github.com/graphql'
     headers = {"Authorization": "Bearer " + token}
 
@@ -109,15 +112,12 @@ def getPullRequests(name, owner):
 
             request = requests.post(url, json={'query': getPRNextQuery(endCursor, name, owner)}, headers=headers)
             doOperations(request.json(), name)
-    # elif request.status_code == 502:
-    #     global cursorCount
-    #     cursorCount += 1
-    #
-    #     global token
-    #     token = tokens[cursorCount % 3]
-    #
-    #     request = requests.post(url, json={'query': getPRNextQuery(endCursor, name, owner)}, headers=headers)
-    #     doOperations(request.json(), prList)
+    elif request.status_code == 502:
+        cursorCount += 1
+        token = tokens[cursorCount % 3]
+        time.sleep(3)
+        print('Trocando token: ', token)
+        getPullRequests(name, owner)
 
 
 def doOperations(response, name):
@@ -174,8 +174,8 @@ def filterPullRequest(request, name):
 
                 if timeSpent is not None:
                     prFormatted = format(pullRequest)
-                    Mongo().insert_one(prFormatted)
-                    # print(pullRequest)
+                    # Mongo().insert_one(prFormatted)
+                    print(prFormatted)
 
 
 def calculateCloseMergeTime(createdAt, closedMergedAt):

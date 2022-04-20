@@ -7,9 +7,15 @@ from csv2json import convert, load_csv, save_json
 
 tokenAlt = "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"
 tokenLe = "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"
-token = tokenAlt
+tokenLucas = "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"
+
 endCursor = ""
 hasNextPage = False
+
+tokens = [tokenAlt, tokenLe, tokenLucas]
+cursorCount = 0
+token = tokens[cursorCount % 3]
+
 
 def getPRNextQuery(endcursor, name, owner):
     prNextQuery = """
@@ -98,11 +104,18 @@ def getPullRequests(name, owner):
     if request.status_code == 200:
         doOperations(request.json(), prList)
         while hasNextPage:
+
             request = requests.post(url, json={'query': getPRNextQuery(endCursor, name, owner)}, headers=headers)
             doOperations(request.json(), prList)
-            
-    # elif request.status_code == 502:
-    # do token logic
+    elif request.status_code == 502:
+        global cursorCount
+        cursorCount += 1
+
+        global token
+        token = tokens[cursorCount % 3]
+
+        request = requests.post(url, json={'query': getPRNextQuery(endCursor, name, owner)}, headers=headers)
+        doOperations(request.json(), prList)
 
     df = pd.DataFrame(prList)
     df.to_csv('pullrequestTeste.csv', encoding='utf-8')

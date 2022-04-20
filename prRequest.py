@@ -4,7 +4,6 @@ from pymongo import MongoClient
 from mongo import Mongo
 
 import requests
-import pandas as pd
 from csv2json import convert, load_csv, save_json
 
 tokenAlt = "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"
@@ -105,11 +104,11 @@ def getPullRequests(name, owner):
     request = requests.post(url, json={'query': prFirstQuery}, headers=headers)
 
     if request.status_code == 200:
-        doOperations(request.json())
+        doOperations(request.json(), name)
         while hasNextPage:
 
             request = requests.post(url, json={'query': getPRNextQuery(endCursor, name, owner)}, headers=headers)
-            doOperations(request.json())
+            doOperations(request.json(), name)
     # elif request.status_code == 502:
     #     global cursorCount
     #     cursorCount += 1
@@ -121,9 +120,9 @@ def getPullRequests(name, owner):
     #     doOperations(request.json(), prList)
 
 
-def doOperations(response):
+def doOperations(response, name):
     checkIfHasNext(response)
-    filterPullRequest(response)
+    filterPullRequest(response, name)
 
 
 def checkIfHasNext(request):
@@ -137,7 +136,7 @@ def checkIfHasNext(request):
     endCursor = request['data']['repository']['pullRequests']['pageInfo']['endCursor']
 
 
-def filterPullRequest(request):
+def filterPullRequest(request, name):
     jsonTotalCount = len(request['data']['repository']['pullRequests']['nodes'])
 
     if jsonTotalCount > 0:
@@ -151,6 +150,22 @@ def filterPullRequest(request):
             closedAt = pullRequest["closedAt"]
             createdAt = pullRequest["createdAt"]
 
+            def format(pr):
+                return {
+                    "name": name,
+                    "createdAt": pr["createdAt"],
+                    "closed": pr["closed"],
+                    "closedAt": pr["closedAt"],
+                    "merged": pr["merged"],
+                    "mergedAt": pr["mergedAt"],
+                    "bodyText": pr["bodyText"],
+                    "changedFiles": pr["changedFiles"],
+                    "files": pr["files"]["totalCount"],
+                    "participants": pr["participants"]["totalCount"],
+                    "comments": pr["comments"]["totalCount"],
+                    "reviews": pr["reviews"]["totalCount"],
+                }
+
             if (closed or merged) and reviews >= 1:
                 if (closed and merged) or (closed and not merged):
                     timeSpent = calculateCloseMergeTime(createdAt, closedAt)
@@ -158,9 +173,9 @@ def filterPullRequest(request):
                     timeSpent = calculateCloseMergeTime(createdAt, mergedAt)
 
                 if timeSpent is not None:
-                    Mongo().insert_one(pullRequest)
-                    list.append(pullRequest)
-                    print(pullRequest)
+                    prFormatted = format(pullRequest)
+                    Mongo().insert_one(prFormatted)
+                    # print(pullRequest)
 
 
 def calculateCloseMergeTime(createdAt, closedMergedAt):

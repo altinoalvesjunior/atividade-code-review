@@ -1,5 +1,6 @@
 import json
 from datetime import datetime
+from pymongo import MongoClient
 
 import requests
 import pandas as pd
@@ -16,6 +17,7 @@ tokens = [tokenAlt, tokenLe, tokenLucas]
 cursorCount = 0
 token = tokens[cursorCount % 3]
 
+client = MongoClient()
 
 def getPRNextQuery(endcursor, name, owner):
     prNextQuery = """

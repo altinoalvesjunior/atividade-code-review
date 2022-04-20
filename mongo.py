@@ -15,7 +15,7 @@ class Mongo:
     #     )
     #     self.__database = self.__client[os.environ['PRIMARY_DATABASE']]
 
-    CONNECTION_STRING = "mongodb+srv://admin:admin@cluster0.n0lfs.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    CONNECTION_STRING = "mongodb+srv://admin:admin@cluster0.n0lfs.mongodb.net/Lab03?retryWrites=true&w=majority"
     client = MongoClient(CONNECTION_STRING)
 
     db = client["Lab03"]
@@ -23,3 +23,4 @@ class Mongo:
 
     def insert_one(self, value):
         self.collection.insert_one(value)
+        print('foi!\n', value)

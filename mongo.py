@@ -1,5 +1,6 @@
 import pymongo
 from pymongo import MongoClient
+import certifi
 
 class Mongo:
     # __client: any
@@ -16,7 +17,7 @@ class Mongo:
     #     self.__database = self.__client[os.environ['PRIMARY_DATABASE']]
 
     CONNECTION_STRING = "mongodb+srv://admin:admin@cluster0.n0lfs.mongodb.net/Lab03?retryWrites=true&w=majority"
-    client = MongoClient(CONNECTION_STRING)
+    client = MongoClient(CONNECTION_STRING, tlsCAFile=certifi.where())
 
     db = client["Lab03"]
     collection = db["pull_requests"]

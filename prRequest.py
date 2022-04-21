@@ -19,7 +19,7 @@ def getPRNextQuery(endcursor, name, owner):
     prNextQuery = """
     {
       repository(owner: "%s", name: "%s") {
-        pullRequests(first: 10, after: "%s") {
+        pullRequests(first: 5, after: "%s") {
           totalCount
           nodes {
             id
@@ -56,9 +56,9 @@ def getPRNextQuery(endcursor, name, owner):
 
 
 def getPullRequests(name, owner):
-    tokens = ["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",
-              "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",
-              "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"]
+    tokens = ["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",
+              "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",
+              "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"]
 
     global token
     global cursorCount
@@ -71,7 +71,7 @@ def getPullRequests(name, owner):
     prFirstQuery = """
     {
       repository(owner: "%s", name: "%s") {
-        pullRequests(first: 100) {
+        pullRequests(first: 5) {
           totalCount
           nodes {
             id
@@ -201,9 +201,7 @@ def convertCsvToJson(csvFileName, jsonFileName):
 def main():
     # convertCsvToJson("repositories", "repositories")
 
-    with open('repositories3.json') as f:
+    with open('files/repositories.json') as f:
         repositoriesList = json.load(f)
     for i in range(len(repositoriesList)):
         getPullRequests(repositoriesList[i]['name'], repositoriesList[i]['owner'])
-
-    # getPullRequests("system-design-primer", "donnemartin")

@@ -17,3 +17,7 @@ class Mongo:
     def insert_repository(self, repo_name):
         self.savedReposCollection.insert_one({"repo_name": repo_name})
         print(f'Processamento do repositório {repo_name} concluído.')
+
+    def removeFlutter(self):
+        self.prCollection.delete_many({ "name" : "Linux" })
+        print('PR do Linux deletadas')

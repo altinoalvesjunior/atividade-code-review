@@ -14,11 +14,12 @@ cursorCount = 0
 
 client = MongoClient()
 
+
 def getPRNextQuery(endcursor, name, owner):
     prNextQuery = """
     {
       repository(owner: "%s", name: "%s") {
-        pullRequests(first: 25, after: "%s") {
+        pullRequests(first: 10, after: "%s") {
           totalCount
           nodes {
             id
@@ -55,7 +56,6 @@ def getPRNextQuery(endcursor, name, owner):
 
 
 def getPullRequests(name, owner):
-
     tokens = ["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",
               "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",
               "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"]
@@ -117,6 +117,9 @@ def getPullRequests(name, owner):
         time.sleep(3)
         print('Trocando token: ', token)
         getPullRequests(name, owner)
+    elif request.content is None or request.status_code == 204:
+        print('Request vazia\nTentando novamente...')
+        getPullRequests(name, owner)
 
 
 def doOperations(response, name):
@@ -127,15 +130,17 @@ def doOperations(response, name):
 def checkIfHasNext(request, name):
     global hasNextPage
     hasNextPage = request['data']['repository']['pullRequests']['pageInfo']['hasNextPage']
+    print('hasNextPage = ', hasNextPage)
 
     if hasNextPage != True:
         Mongo().insert_repository(name)
 
     global endCursor
     endCursor = request['data']['repository']['pullRequests']['pageInfo']['endCursor']
-
+    print('O endcursor é: ', endCursor)
 
 def filterPullRequest(request, name):
+    print('Filtrando Pull Requests...')
     jsonTotalCount = len(request['data']['repository']['pullRequests']['nodes'])
 
     if jsonTotalCount > 0:
@@ -194,9 +199,9 @@ def convertCsvToJson(csvFileName, jsonFileName):
 
 
 def main():
-    convertCsvToJson("repositories", "repositories")
+    # convertCsvToJson("repositories", "repositories")
 
-    with open('repositories.json') as f:
+    with open('repositories3.json') as f:
         repositoriesList = json.load(f)
     for i in range(len(repositoriesList)):
         getPullRequests(repositoriesList[i]['name'], repositoriesList[i]['owner'])
